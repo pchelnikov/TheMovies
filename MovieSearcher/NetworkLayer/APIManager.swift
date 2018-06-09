@@ -11,37 +11,26 @@ import Foundation
 import RxSwift
 
 enum ApiError: Error {
+    case commonError
     case serverError
+    case parseError
+    case responseError
 }
 
 final class APIManager {
     
     static let shared = APIManager()
     
-    func getMovies(for query: String) -> Observable<MoviesResponse> {
-        guard let url = URL(string: Config.API.searchMovieURL) else {
-            return Observable.empty()
+    func getMovies(for query: String, page: Int) -> Observable<MoviesResponse> {
+        guard let url = URL(string: Config.API.searchMovieURL((query: query, page: page)).url) else {
+            return Observable.just(MoviesResponse.failed(error: .commonError))
         }
         
         let request = URLRequest(url: url)
         
-        return URLSession.shared.rx.json(request: request) //.response(request: request)
+        return URLSession.shared.rx.data(request: request)
             .debug()
             .map(MoviesResponse.parse)
-            .catchErrorJustReturn(MoviesResponse.failed)
-    }
-}
-
-enum MoviesResponse: Equatable {
-    case success
-    case failed
-    
-    // MARK: JSON
-    static func parse(_ json: Any) -> MoviesResponse {
-        guard let dict = json as? [String : AnyObject] else { return .failed }
-        
-        debugPrint(dict)
-        
-        return .success
+            .catchErrorJustReturn(MoviesResponse.failed(error: .responseError))
     }
 }
