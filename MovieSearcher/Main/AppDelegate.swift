@@ -19,11 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Initital Window and root View Controller
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = UIColor.white
+        window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         
-        let vc = ViewController()
-        window?.rootViewController = vc
+        window?.rootViewController = MainScreenViewController()
         
         return true
     }
