@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = MainScreenViewController()
+        let navigationRootController = UINavigationController(rootViewController: MainScreenTableViewController())
+        window?.rootViewController = navigationRootController
         
         return true
     }

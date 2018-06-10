@@ -7,6 +7,8 @@ target 'MovieSearcher' do
 
   pod 'RxSwift', '4.2.0'
   pod 'RxCocoa', '4.2.0'
+  
+  pod 'Kingfisher', '4.8.0'
 
   target 'MovieSearcherTests' do
     inherit! :search_paths

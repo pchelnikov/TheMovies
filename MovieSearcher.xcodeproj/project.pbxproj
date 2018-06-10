@@ -18,8 +18,12 @@
 		C61D63FE20CC95B60065715B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D63FD20CC95B60065715B /* Movie.swift */; };
 		C61D640020CC95CF0065715B /* Movie+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D63FF20CC95CF0065715B /* Movie+Decodable.swift */; };
 		C61D640220CC96030065715B /* MoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640120CC96030065715B /* MoviesResponse.swift */; };
+		C61D640420CC983F0065715B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640320CC983F0065715B /* BaseViewModel.swift */; };
+		C61D640820CC9EB60065715B /* MovieItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640720CC9EB60065715B /* MovieItemCell.swift */; };
+		C61D640A20CC9FCE0065715B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640920CC9FCE0065715B /* Collection+.swift */; };
+		C61D640C20CCA2400065715B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640B20CCA2400065715B /* Label.swift */; };
 		C6DDFACB20CAB04700BEAF5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFACA20CAB04700BEAF5B /* AppDelegate.swift */; };
-		C6DDFACD20CAB04700BEAF5B /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFACC20CAB04700BEAF5B /* MainScreenViewController.swift */; };
+		C6DDFACD20CAB04700BEAF5B /* MainScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFACC20CAB04700BEAF5B /* MainScreenTableViewController.swift */; };
 		C6DDFAD320CAB04700BEAF5B /* MovieSearcher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFAD120CAB04700BEAF5B /* MovieSearcher.xcdatamodeld */; };
 		C6DDFAD520CAB04900BEAF5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DDFAD420CAB04900BEAF5B /* Assets.xcassets */; };
 		C6DDFAD820CAB04900BEAF5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DDFAD620CAB04900BEAF5B /* LaunchScreen.storyboard */; };
@@ -63,9 +67,13 @@
 		C61D63FD20CC95B60065715B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		C61D63FF20CC95CF0065715B /* Movie+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+Decodable.swift"; sourceTree = "<group>"; };
 		C61D640120CC96030065715B /* MoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResponse.swift; sourceTree = "<group>"; };
+		C61D640320CC983F0065715B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		C61D640720CC9EB60065715B /* MovieItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemCell.swift; sourceTree = "<group>"; };
+		C61D640920CC9FCE0065715B /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
+		C61D640B20CCA2400065715B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		C6DDFAC720CAB04700BEAF5B /* MovieSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DDFACA20CAB04700BEAF5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C6DDFACC20CAB04700BEAF5B /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		C6DDFACC20CAB04700BEAF5B /* MainScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewController.swift; sourceTree = "<group>"; };
 		C6DDFAD220CAB04700BEAF5B /* MovieSearcher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieSearcher.xcdatamodel; sourceTree = "<group>"; };
 		C6DDFAD420CAB04900BEAF5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6DDFAD720CAB04900BEAF5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -162,7 +170,7 @@
 		C61D63ED20CC65F20065715B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C6DDFACC20CAB04700BEAF5B /* MainScreenViewController.swift */,
+				C6DDFACC20CAB04700BEAF5B /* MainScreenTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -171,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				C6DDFAFC20CAB32200BEAF5B /* UIColor+.swift */,
+				C61D640920CC9FCE0065715B /* Collection+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				C61D63E820CC63070065715B /* MarkerKit.swift */,
+				C61D640B20CCA2400065715B /* Label.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -186,6 +196,7 @@
 		C61D63F020CC668A0065715B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C61D640320CC983F0065715B /* BaseViewModel.swift */,
 				C61D63F120CC66E90065715B /* MainScreenViewModel.swift */,
 			);
 			path = ViewModels;
@@ -209,6 +220,22 @@
 				C61D63FF20CC95CF0065715B /* Movie+Decodable.swift */,
 			);
 			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		C61D640520CC9B120065715B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C61D640620CC9B1C0065715B /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C61D640620CC9B1C0065715B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C61D640720CC9EB60065715B /* MovieItemCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		C6DDFABE20CAB04700BEAF5B = {
@@ -242,6 +269,7 @@
 				C61D63F520CC70740065715B /* NetworkLayer */,
 				C61D63ED20CC65F20065715B /* ViewControllers */,
 				C61D63F020CC668A0065715B /* ViewModels */,
+				C61D640520CC9B120065715B /* Views */,
 				C61D63EC20CC65630065715B /* Main */,
 				C61D63EB20CC65520065715B /* Resources */,
 				C61D63EA20CC65400065715B /* Supporting Files */,
@@ -440,11 +468,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MovieSearcher/Pods-MovieSearcher-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -480,15 +510,19 @@
 			files = (
 				C61D63F720CC70A00065715B /* APIManager.swift in Sources */,
 				C61D63E920CC63080065715B /* MarkerKit.swift in Sources */,
-				C6DDFACD20CAB04700BEAF5B /* MainScreenViewController.swift in Sources */,
+				C6DDFACD20CAB04700BEAF5B /* MainScreenTableViewController.swift in Sources */,
+				C61D640A20CC9FCE0065715B /* Collection+.swift in Sources */,
+				C61D640420CC983F0065715B /* BaseViewModel.swift in Sources */,
 				C6DDFAD320CAB04700BEAF5B /* MovieSearcher.xcdatamodeld in Sources */,
 				C61D63F420CC69F40065715B /* Config.swift in Sources */,
+				C61D640820CC9EB60065715B /* MovieItemCell.swift in Sources */,
 				C61D63FA20CC957D0065715B /* MoviesResults.swift in Sources */,
 				C6DDFACB20CAB04700BEAF5B /* AppDelegate.swift in Sources */,
 				C61D63FC20CC95950065715B /* MoviesResults+Decodable.swift in Sources */,
 				C6DDFAFD20CAB32200BEAF5B /* UIColor+.swift in Sources */,
 				C61D63FE20CC95B60065715B /* Movie.swift in Sources */,
 				C61D640020CC95CF0065715B /* Movie+Decodable.swift in Sources */,
+				C61D640C20CCA2400065715B /* Label.swift in Sources */,
 				C61D63F220CC66E90065715B /* MainScreenViewModel.swift in Sources */,
 				C61D640220CC96030065715B /* MoviesResponse.swift in Sources */,
 			);

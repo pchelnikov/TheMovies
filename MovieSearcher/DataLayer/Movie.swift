@@ -13,5 +13,5 @@ struct Movie: Equatable {
     let title: String?
     let overview: String?
     let posterPath: String?
-    let releaseDate: String? //: Date
+    let releaseDate: String? //there must be a Date type, but it's not necessary for test project
 }

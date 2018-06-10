@@ -10,55 +10,39 @@ import Foundation
 
 import RxSwift
 
-final class MainScreenViewModel {
+final class MainScreenViewModel: BaseViewModel {
     
-    private var dBag = DisposeBag()
+    var movies = [Movie]()
     
-    init() {
+    var rowsCount: Int {
+        return movies.count
+    }
+    
+    override init() {
         
     }
     
-    func getMovies() {
+    func getMovies(for query: String) {
+        inProgress.onNext(true)
         
-        APIManager.shared.getMovies(for: "world", page: 1)
-            .subscribe(onNext: { (response) in
-                debugPrint(response)
+        APIManager.shared.getMovies(for: query, page: 1)
+            .subscribe(onNext: { [weak self] (response) in
+                guard let `self` = self else { return }
+                
+                if case let .success(movies) = response {
+                    self.movies = movies
+                    self.isEmptyData.accept(movies.isEmpty)
+                    self.dataRefreshed.onNext(())
+                    self.inProgress.onNext(false)
+                } else {
+                    //error
+                }
             }, onError: { (error) in
                 debugPrint(error)
             }).disposed(by: dBag)
-        
-//        URLSession.shared.rx.response(request: request)
-//            .subscribe(onNext: { (response, data) in
-//                debugPrint(response)
-//                debugPrint(data)
-//            }, onError: { (error) in
-//                debugPrint(error)
-//            }).disposed(by: dBag)
-        
-        
-//            .debug()
-//            .flatMap { (response, data) -> Observable<String> in
-//
-//            }
-        
-//            .flatMap { (arg: (response: HTTPURLResponse, data: Data)) -> Observable<String> in
-//
-//                let (data, response) = arg
-//                if let response = response as? HTTPURLResponse {
-//                    if 200 ..< 300 ~= response.statusCode {
-//                        return just(transform(data))
-//                    }
-//                    else {
-//                        return Observable.error(yourNSError)
-//                    }
-//                }
-//                else {
-//                    rxFatalError("response = nil")
-//                    return Observable.error(yourNSError)
-//                }
-//            }
-//            .subscribe { event in
-//                print(event) // if error happened, this will also print out error to console
-//            }
+    }
+
+    func movieItemAt(indexPath: IndexPath) -> Movie? {
+        return movies[safe: indexPath.row]
     }
 }

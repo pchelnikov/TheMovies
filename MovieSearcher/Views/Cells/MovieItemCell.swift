@@ -1,0 +1,89 @@
+//
+//  MovieItemCell.swift
+//  MovieSearcher
+//
+//  Created by Mikhail Pchelnikov on 10/06/2018.
+//  Copyright © 2018 Michael Pchelnikov. All rights reserved.
+//
+
+import UIKit
+
+import Kingfisher
+
+class MovieItemCell: UITableViewCell {
+    
+    private struct Sizes {
+        static let posterDefaultWidth: CGFloat = 185 / 2
+        static let posterDefaultHeight: CGFloat = 278 / 2
+    }
+    
+    private lazy var posterImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    private lazy var movieTitleLabel: UILabel = {
+        return Label.custom(UIFont.systemFont(ofSize: 16), color: .primaryColor, lines: 0, alignment: .left)
+    }()
+    
+    private lazy var movieReleaseDateLabel: UILabel = {
+        return Label.custom(UIFont.systemFont(ofSize: 12), color: .black, lines: 1, alignment: .left)
+    }()
+    
+    private lazy var movieOverviewLabel: UILabel = {
+        return Label.custom(UIFont.systemFont(ofSize: 12), color: .black, lines: 0, alignment: .left)
+    }()
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupViews()
+        setupConstraints()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupViews() {
+        contentView.addSubview(posterImageView)
+        contentView.addSubview(movieTitleLabel)
+        contentView.addSubview(movieReleaseDateLabel)
+        contentView.addSubview(movieOverviewLabel)
+    }
+    
+    private func setupConstraints() {
+        posterImageView.mrk.top(to: contentView, attribute: .top, relation: .equal, constant: 10)
+        posterImageView.mrk.leading(to: contentView, attribute: .leading, relation: .equal, constant: 10)
+        posterImageView.mrk.width(Sizes.posterDefaultWidth)
+        posterImageView.mrk.height(Sizes.posterDefaultHeight)
+        posterImageView.mrk.bottom(to: contentView, attribute: .bottom, relation: .lessThanOrEqual, constant: -20)
+        
+        movieTitleLabel.mrk.top(to: posterImageView, attribute: .top, relation: .equal, constant: 0)
+        movieTitleLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 10)
+        movieTitleLabel.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -10)
+        
+        movieReleaseDateLabel.mrk.top(to: movieTitleLabel, attribute: .bottom, relation: .equal, constant: 4)
+        movieReleaseDateLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 10)
+        movieReleaseDateLabel.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -10)
+        
+        movieOverviewLabel.mrk.top(to: movieReleaseDateLabel, attribute: .bottom, relation: .equal, constant: 4)
+        movieOverviewLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 10)
+        movieOverviewLabel.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -10)
+        movieOverviewLabel.mrk.bottom(to: contentView, attribute: .bottom, relation: .lessThanOrEqual, constant: -20)
+    }
+    
+    func setupWith(movie: Movie) {
+        if let path = movie.posterPath, let url = URL(string: "\(Config.URL.basePoster)\(path)") {
+            posterImageView.kf.indicatorType = .activity
+            posterImageView.kf.setImage(with: url, placeholder: nil, options: [.transition(.fade(0.2))], progressBlock: nil) { (_, _, _, _) in
+                self.contentView.layoutIfNeeded()
+            }
+        }
+        
+        movieTitleLabel.text       = movie.title
+        movieReleaseDateLabel.text = "Release Date: \(movie.releaseDate ?? "")"
+        movieOverviewLabel.text    = "Overview: \(movie.overview ?? "")"
+    }
+}

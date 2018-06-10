@@ -18,12 +18,19 @@ struct Config {
         var url: String {
             switch self {
             case let .searchMovieURL(query: query, page: page):
-                return "\(URL.baseURL)&query=\(query)&page=1" //\(page)"
+                return "\(URL.base)&query=\(query)&page=\(page)"
             }
         }
     }
     
     struct URL {
-        static let baseURL = "http://api.themoviedb.org/3/search/movie?api_key=2696829a81b1b5827d515ff121700838"
+        static let base = "http://api.themoviedb.org/3/search/movie?api_key=2696829a81b1b5827d515ff121700838"
+        static let basePoster = "http://image.tmdb.org/t/p/w185"
+    }
+    
+    struct Identifier {
+        struct MovieTable {
+            static let cell = "MovieItemCell"
+        }
     }
 }
