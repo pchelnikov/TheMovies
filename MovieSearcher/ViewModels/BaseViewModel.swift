@@ -11,6 +11,8 @@ import Foundation
 import RxCocoa
 import RxSwift
 
+typealias IsEmptyData = Bool
+
 enum LoadOption {
     case fromStart
     case continueLoading
@@ -22,13 +24,12 @@ class BaseViewModel {
     let visible     = BehaviorRelay<Bool>(value: false)
     let pageLoading = BehaviorRelay<Bool>(value: false)
     let isError     = BehaviorRelay<Bool>(value: false)
-    let isEmptyData = BehaviorRelay<Bool>(value: true)
     
     let inProgress = PublishSubject<Bool>()
     
-    var loadNextData  = BehaviorSubject<LoadOption>(value: LoadOption.fromStart)
+    var dataRefreshed = PublishSubject<IsEmptyData>()
     
-    var dataRefreshed = PublishSubject<Void>()
+    var loadNextData = BehaviorSubject<LoadOption>(value: LoadOption.fromStart)
     
     var dBag = DisposeBag()
 }

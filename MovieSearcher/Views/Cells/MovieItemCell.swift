@@ -74,7 +74,7 @@ class MovieItemCell: UITableViewCell {
         movieOverviewLabel.mrk.bottom(to: contentView, attribute: .bottom, relation: .lessThanOrEqual, constant: -20)
     }
     
-    func setupWith(movie: Movie) {
+    func setup(with movie: Movie) {
         if let path = movie.posterPath, let url = URL(string: "\(Config.URL.basePoster)\(path)") {
             posterImageView.kf.indicatorType = .activity
             posterImageView.kf.setImage(with: url, placeholder: nil, options: [.transition(.fade(0.2))], progressBlock: nil) { (_, _, _, _) in

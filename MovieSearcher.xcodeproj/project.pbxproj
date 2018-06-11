@@ -24,12 +24,12 @@
 		C61D640C20CCA2400065715B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640B20CCA2400065715B /* Label.swift */; };
 		C6DDFACB20CAB04700BEAF5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFACA20CAB04700BEAF5B /* AppDelegate.swift */; };
 		C6DDFACD20CAB04700BEAF5B /* MainScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFACC20CAB04700BEAF5B /* MainScreenTableViewController.swift */; };
-		C6DDFAD320CAB04700BEAF5B /* MovieSearcher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFAD120CAB04700BEAF5B /* MovieSearcher.xcdatamodeld */; };
 		C6DDFAD520CAB04900BEAF5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DDFAD420CAB04900BEAF5B /* Assets.xcassets */; };
 		C6DDFAD820CAB04900BEAF5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DDFAD620CAB04900BEAF5B /* LaunchScreen.storyboard */; };
 		C6DDFAE320CAB04A00BEAF5B /* MovieSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFAE220CAB04A00BEAF5B /* MovieSearcherTests.swift */; };
 		C6DDFAEE20CAB04A00BEAF5B /* MovieSearcherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFAED20CAB04A00BEAF5B /* MovieSearcherUITests.swift */; };
 		C6DDFAFD20CAB32200BEAF5B /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFAFC20CAB32200BEAF5B /* UIColor+.swift */; };
+		C6EC202620CDD50A00817D21 /* QueriesHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EC202520CDD50A00817D21 /* QueriesHistoryService.swift */; };
 		DF51E69A134C27D29DBCC48A /* Pods_MovieSearcherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67439EBAC6B2A46EF653846 /* Pods_MovieSearcherTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +74,6 @@
 		C6DDFAC720CAB04700BEAF5B /* MovieSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DDFACA20CAB04700BEAF5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DDFACC20CAB04700BEAF5B /* MainScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewController.swift; sourceTree = "<group>"; };
-		C6DDFAD220CAB04700BEAF5B /* MovieSearcher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieSearcher.xcdatamodel; sourceTree = "<group>"; };
 		C6DDFAD420CAB04900BEAF5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6DDFAD720CAB04900BEAF5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6DDFAD920CAB04A00BEAF5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		C6DDFAED20CAB04A00BEAF5B /* MovieSearcherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearcherUITests.swift; sourceTree = "<group>"; };
 		C6DDFAEF20CAB04A00BEAF5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6DDFAFC20CAB32200BEAF5B /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		C6EC202520CDD50A00817D21 /* QueriesHistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesHistoryService.swift; sourceTree = "<group>"; };
 		D3FC13FFAF068EB43A2B4525 /* Pods-MovieSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSearcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieSearcher/Pods-MovieSearcher.release.xcconfig"; sourceTree = "<group>"; };
 		D67439EBAC6B2A46EF653846 /* Pods_MovieSearcherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieSearcherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -162,7 +162,6 @@
 			children = (
 				C6DDFACA20CAB04700BEAF5B /* AppDelegate.swift */,
 				C61D63F320CC69F40065715B /* Config.swift */,
-				C6DDFAD120CAB04700BEAF5B /* MovieSearcher.xcdatamodeld */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -189,6 +188,7 @@
 			children = (
 				C61D63E820CC63070065715B /* MarkerKit.swift */,
 				C61D640B20CCA2400065715B /* Label.swift */,
+				C6EC202520CDD50A00817D21 /* QueriesHistoryService.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -511,9 +511,9 @@
 				C61D63F720CC70A00065715B /* APIManager.swift in Sources */,
 				C61D63E920CC63080065715B /* MarkerKit.swift in Sources */,
 				C6DDFACD20CAB04700BEAF5B /* MainScreenTableViewController.swift in Sources */,
+				C6EC202620CDD50A00817D21 /* QueriesHistoryService.swift in Sources */,
 				C61D640A20CC9FCE0065715B /* Collection+.swift in Sources */,
 				C61D640420CC983F0065715B /* BaseViewModel.swift in Sources */,
-				C6DDFAD320CAB04700BEAF5B /* MovieSearcher.xcdatamodeld in Sources */,
 				C61D63F420CC69F40065715B /* Config.swift in Sources */,
 				C61D640820CC9EB60065715B /* MovieItemCell.swift in Sources */,
 				C61D63FA20CC957D0065715B /* MoviesResults.swift in Sources */,
@@ -849,19 +849,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		C6DDFAD120CAB04700BEAF5B /* MovieSearcher.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C6DDFAD220CAB04700BEAF5B /* MovieSearcher.xcdatamodel */,
-			);
-			currentVersion = C6DDFAD220CAB04700BEAF5B /* MovieSearcher.xcdatamodel */;
-			path = MovieSearcher.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C6DDFABF20CAB04700BEAF5B /* Project object */;
 }

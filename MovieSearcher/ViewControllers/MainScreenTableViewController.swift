@@ -27,6 +27,8 @@ final class MainScreenTableViewController: UITableViewController {
         return UIActivityIndicatorView(activityIndicatorStyle: .gray)
     }()
     
+    private var isSearchBarActive = false
+    
     private var dBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -60,11 +62,12 @@ final class MainScreenTableViewController: UITableViewController {
         tableView.rowHeight          = UITableViewAutomaticDimension
         tableView.tableFooterView    = UIView()
         
-        tableView.register(MovieItemCell.self, forCellReuseIdentifier: Config.Identifier.MovieTable.cell)
+        tableView.register(MovieItemCell.self, forCellReuseIdentifier: Config.CellIdentifier.MovieTable.movieCell)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Config.CellIdentifier.MovieTable.historyCell)
     }
     
     private func setupSearchController() {
-        //searchController.obscuresBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
         
         searchController.searchBar.delegate = self
         searchController.searchBar.searchBarStyle = .minimal
@@ -97,17 +100,16 @@ final class MainScreenTableViewController: UITableViewController {
         
         model.dataRefreshed
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] in
-                guard let `self` = self else { return }
-                self.tableView.reloadData()
-            }).disposed(by: dBag)
-        
-        model.isEmptyData
-            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] isEmptyData in
                 guard let `self` = self else { return }
                 self.emptyDataLabel.isHidden = !isEmptyData
-            }).disposed(by: dBag)
+                self.tableView.reloadData()
+            }).disposed(by: dBag)        
+    }
+    
+    private func tapToSearchMovies(for query: String) {
+        searchController.isActive = false
+        model.getMovies(for: query)
     }
 
     // MARK: UITableViewDelegate, UITableViewDataSource
@@ -116,23 +118,55 @@ final class MainScreenTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.rowsCount
+        if isSearchBarActive {
+            return model.queriesHistory.count
+        } else {
+            return model.rowsCount
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Config.Identifier.MovieTable.cell, for: indexPath) as! MovieItemCell
-        if let movieItem = model.movieItemAt(indexPath: indexPath) {
-            cell.setupWith(movie: movieItem)
+        if isSearchBarActive {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Config.CellIdentifier.MovieTable.historyCell, for: indexPath)
+            if let historyItem = model.historicalQuery(at: indexPath) {
+                cell.textLabel?.text = historyItem
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Config.CellIdentifier.MovieTable.movieCell, for: indexPath) as! MovieItemCell
+            if let movieItem = model.movieItem(at: indexPath) {
+                cell.setup(with: movieItem)
+            }
+            return cell
         }
-        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isSearchBarActive {
+            guard let query = model.historicalQuery(at: indexPath) else { return }
+            tapToSearchMovies(for: query)
+        }
     }
 }
 
 extension MainScreenTableViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        emptyDataLabel.isHidden = true
+        isSearchBarActive = true
+        tableView.reloadData()
+        return true
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        emptyDataLabel.isHidden = false
+        isSearchBarActive = false
+        tableView.reloadData()
+        return true
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchString = searchController.searchBar.text {
-            searchController.isActive = false
-            model.getMovies(for: searchString)
+            tapToSearchMovies(for: searchString)
         }
     }
 }

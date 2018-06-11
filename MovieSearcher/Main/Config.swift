@@ -12,6 +12,8 @@ typealias SearchMovieParams = (query: String, page: Int)
 
 struct Config {
     
+    static let maxQueriesHistoryCount = 10
+    
     enum API {
         case searchMovieURL(SearchMovieParams)
         
@@ -28,9 +30,14 @@ struct Config {
         static let basePoster = "http://image.tmdb.org/t/p/w185"
     }
     
-    struct Identifier {
+    struct Keys {
+        static let queriesHistory = "_queriesHistory"
+    }
+    
+    struct CellIdentifier {
         struct MovieTable {
-            static let cell = "MovieItemCell"
+            static let movieCell = "MovieItemCell"
+            static let historyCell = "HistoryItemCell"
         }
     }
 }

@@ -13,13 +13,16 @@ import RxSwift
 final class MainScreenViewModel: BaseViewModel {
     
     var movies = [Movie]()
+    var queriesHistory = [String]()
     
     var rowsCount: Int {
         return movies.count
     }
     
     override init() {
-        
+        if let history = QueriesHistoryService.getHistory(key: Config.Keys.queriesHistory) as? [String] {
+            queriesHistory = history
+        }
     }
     
     func getMovies(for query: String) {
@@ -31,8 +34,12 @@ final class MainScreenViewModel: BaseViewModel {
                 
                 if case let .success(movies) = response {
                     self.movies = movies
-                    self.isEmptyData.accept(movies.isEmpty)
-                    self.dataRefreshed.onNext(())
+                    
+                    if !movies.isEmpty {
+                        self.updateQueriesHistory(with: query)
+                    }
+                    
+                    self.dataRefreshed.onNext(movies.isEmpty)
                     self.inProgress.onNext(false)
                 } else {
                     //error
@@ -42,7 +49,29 @@ final class MainScreenViewModel: BaseViewModel {
             }).disposed(by: dBag)
     }
 
-    func movieItemAt(indexPath: IndexPath) -> Movie? {
+    func movieItem(at indexPath: IndexPath) -> Movie? {
         return movies[safe: indexPath.row]
+    }
+    
+    func historicalQuery(at indexPath: IndexPath) -> String? {
+        return queriesHistory[safe: indexPath.row]
+    }
+    
+    private func updateQueriesHistory(with query: String) {
+        guard var history = QueriesHistoryService.getHistory(key: Config.Keys.queriesHistory) as? [String] else {
+            queriesHistory = [query]
+            QueriesHistoryService.saveHistory(key: Config.Keys.queriesHistory, value: [query])
+            return
+        }
+        
+        if history.count == Config.maxQueriesHistoryCount {
+            history.removeLast()
+        }
+        
+        history.insert(query, at: 0)
+        
+        queriesHistory = history
+        
+        QueriesHistoryService.saveHistory(key: Config.Keys.queriesHistory, value: history)
     }
 }
