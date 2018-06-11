@@ -8,6 +8,6 @@
 
 ### Third-party dependencies
 
-- [RxSwift](https://github.com/ReactiveX/RxSwift)
-- [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa)
-- [Kingfisher](https://github.com/onevcat/Kingfisher)
+- [RxSwift](https://github.com/ReactiveX/RxSwift) — Reactive Programming in Swift.
+- [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa) — Reactive Programming in Swift.
+- [Kingfisher](https://github.com/onevcat/Kingfisher) — A lightweight, pure-Swift library for downloading and caching images from the web.
