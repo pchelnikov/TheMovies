@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Data structure for movie object + Decodable implementation.
+ */
 extension Movie: Decodable {
     
     enum CodingKeys: String, CodingKey {

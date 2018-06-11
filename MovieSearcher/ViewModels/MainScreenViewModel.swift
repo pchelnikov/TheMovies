@@ -93,6 +93,11 @@ final class MainScreenViewModel: BaseViewModel {
         return queriesHistory[safe: indexPath.row]
     }
     
+    /**
+     Updates history of queries.
+     
+     - parameter query: The query, entered by user.
+     */
     private func updateQueriesHistory(with query: String) {
         guard var history = QueriesHistoryService.getHistory(key: Config.Keys.queriesHistory) as? [String] else {
             queriesHistory = [query]

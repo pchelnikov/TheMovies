@@ -10,6 +10,9 @@ import Foundation
 
 typealias SearchMovieParams = (query: String, page: Int)
 
+/**
+ Structure for constants declaration.
+ */
 struct Config {
     
     static let maxQueriesHistoryCount = 10

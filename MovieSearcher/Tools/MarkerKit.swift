@@ -26,6 +26,10 @@
 import Foundation
 import UIKit
 
+/**
+ Wrapper for Auto Layout Constraints
+ */
+
 public typealias MarkerView = UIView
 
 public extension MarkerView {

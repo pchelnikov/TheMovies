@@ -10,10 +10,20 @@ import Foundation
 
 import RxSwift
 
+/**
+ Singleton class, which implements working with API.
+ */
 final class APIManager {
     
     static let shared = APIManager()
     
+    /**
+     General method for API calling.
+     
+     - parameter url: API url
+     
+     - returns: Observable of Response Data.
+     */
     private func call(url: String) -> Observable<Data> {
         guard let url = URL(string: url) else {
             return Observable.error(ApplicationError.apiError(error: .commonError))
@@ -31,6 +41,14 @@ final class APIManager {
             })
     }
     
+    /**
+     Gets the movies list.
+     
+     - parameter query: The query, entered by user.
+     - parameter page: Page of list.
+     
+     - returns: Observable of MoviesResponse.
+     */
     func getMovies(for query: String, page: Int) -> Observable<MoviesResponse> {
         return call(url: Config.API.searchMovieURL((query: query, page: page)).url)
             .debug()

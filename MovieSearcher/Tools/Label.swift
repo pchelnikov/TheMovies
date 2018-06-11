@@ -10,6 +10,9 @@ import UIKit
 
 struct Label {
     
+    /**
+     Convenient factory method for UILabel declaration.
+     */
     static func custom(_ font: UIFont, color: UIColor = .black, lines: Int = 1, alignment: NSTextAlignment = .left) -> UILabel {
         let label = UILabel()
         

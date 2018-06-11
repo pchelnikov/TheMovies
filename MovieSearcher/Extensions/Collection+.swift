@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ Extensions for Collection.
+ */
+
 extension Collection {
     subscript(safe index: Index) -> Iterator.Element? {
         if indices.contains(index) {

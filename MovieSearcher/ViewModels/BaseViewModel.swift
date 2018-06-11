@@ -21,6 +21,9 @@ typealias InProgress = Bool
 typealias IsEmptyData = Bool
 typealias ErrorMessage = String
 
+/**
+ Base class for view models, which contains common declarations and implemetations.
+ */
 class BaseViewModel {
     
     let isPageLoading = BehaviorRelay<Bool>(value: false)

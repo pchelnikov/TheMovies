@@ -6,6 +6,9 @@
 //  Copyright © 2018 Michael Pchelnikov. All rights reserved.
 //
 
+/**
+ Errors, which can occur while working with API.
+ */
 enum ApiError: Error {
     case commonError, serverError, parseError, responseError
     
@@ -23,6 +26,9 @@ enum ApiError: Error {
     }
 }
 
+/**
+ Custom applicatin errors.
+ */
 enum ApplicationError: Error {
     case commonError, noResultsError, apiError(error: ApiError)
     

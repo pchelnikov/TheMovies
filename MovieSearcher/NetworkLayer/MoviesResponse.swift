@@ -8,10 +8,20 @@
 
 import Foundation
 
+/**
+ Movies response handler (JSON parsing).
+ */
 enum MoviesResponse {
     case success(movies: [Movie])
     case failed(error: ApiError)
     
+    /**
+     Parses data from API response.
+     
+     - parameter jsonData: JSON as Data
+     
+     - returns: MoviesResponse
+     */
     static func parse(_ jsonData: Data) -> MoviesResponse {
         let decoder = JSONDecoder()
         

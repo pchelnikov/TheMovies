@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Data structure for movie object.
+ */
 struct Movie: Equatable {
     
     let title: String?
