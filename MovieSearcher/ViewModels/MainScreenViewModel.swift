@@ -11,42 +11,82 @@ import Foundation
 import RxSwift
 
 final class MainScreenViewModel: BaseViewModel {
+
+    var lastQuery: String = ""
     
     var movies = [Movie]()
     var queriesHistory = [String]()
     
-    var rowsCount: Int {
-        return movies.count
-    }
+    private var currentPage: Int = 1
     
     override init() {
+        super.init()
+        
         if let history = QueriesHistoryService.getHistory(key: Config.Keys.queriesHistory) as? [String] {
             queriesHistory = history
         }
+        
+        loadNextData
+            .subscribe(onNext: { [weak self] option in
+                guard let `self` = self else { return }
+                self.getMovies(for: self.lastQuery, option: option)
+            }).disposed(by: dBag)
     }
     
-    func getMovies(for query: String) {
-        inProgress.onNext(true)
-        
-        APIManager.shared.getMovies(for: query, page: 1)
-            .subscribe(onNext: { [weak self] (response) in
-                guard let `self` = self else { return }
+    private func getMovies(for query: String, option: LoadOption) {
+        Observable.just(option)
+            .do(onNext: { [weak self] option in self?.inProgress.onNext(true) })
+            .flatMapFirst { [weak self] option -> Observable<(LoadOption, MoviesResponse)> in
+                guard let `self` = self else { return Observable.empty() }
                 
-                if case let .success(movies) = response {
-                    self.movies = movies
-                    
-                    if !movies.isEmpty {
-                        self.updateQueriesHistory(with: query)
-                    }
-                    
-                    self.dataRefreshed.onNext(movies.isEmpty)
-                    self.inProgress.onNext(false)
-                } else {
-                    //error
+                switch option {
+                case .fromStart:
+                    self.currentPage = 1
+                    return APIManager.shared.getMovies(for: query, page: self.currentPage).map { r in (option, r) }
+                case .continueLoading:
+                    self.isPageLoading.accept(true)
+                    self.currentPage += 1
+                    return APIManager.shared.getMovies(for: query, page: self.currentPage).map { r in (option, r) }
+                case .paused:
+                    return Observable.empty()
                 }
-            }, onError: { (error) in
-                debugPrint(error)
+            }
+            .subscribe(onNext: { [weak self] option, response in
+                self?.handleMoviesResponse(response, for: query, with: option)
+            }, onError: { [weak self] (error) in
+                self?.handleError(with: error)
             }).disposed(by: dBag)
+    }
+    
+    private func handleMoviesResponse(_ response: MoviesResponse, for query: String, with option: LoadOption) {
+        if case let .success(respMovies) = response {
+            switch option {
+            case .fromStart:
+                movies = respMovies
+                
+                if respMovies.isEmpty {
+                    onError.onNext(.noResultsError)
+                } else {
+                    updateQueriesHistory(with: query)
+                }
+            case .continueLoading:
+                movies += respMovies
+            case .paused:
+                break
+            }
+            
+            endOfData.accept(respMovies.isEmpty)
+            dataRefreshed.onNext(respMovies.isEmpty)
+            isPageLoading.accept(false)
+            inProgress.onNext(false)
+        } else {
+            self.handleError(with: ApplicationError.commonError)
+        }
+    }
+    
+    private func handleError(with error: Error) {
+        self.isPageLoading.accept(false)
+        self.inProgress.onNext(false)
     }
 
     func movieItem(at indexPath: IndexPath) -> Movie? {

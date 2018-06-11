@@ -60,6 +60,8 @@ class MovieItemCell: UITableViewCell {
         posterImageView.mrk.height(Sizes.posterDefaultHeight)
         posterImageView.mrk.bottom(to: contentView, attribute: .bottom, relation: .lessThanOrEqual, constant: -20)
         
+        posterImageView.setContentHuggingPriority(UILayoutPriority(999), for: .vertical)
+        
         movieTitleLabel.mrk.top(to: posterImageView, attribute: .top, relation: .equal, constant: 0)
         movieTitleLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 10)
         movieTitleLabel.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -10)

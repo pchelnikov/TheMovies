@@ -15,6 +15,19 @@ enum ApiError: Error {
     case serverError
     case parseError
     case responseError
+    
+    var description: String {
+        switch self {
+        case .commonError:
+            return "Please try again"
+        case .parseError:
+            return "Parese Error"
+        case .responseError:
+            return "Response Error"
+        case .serverError:
+            return "Server Error"
+        }
+    }
 }
 
 final class APIManager {

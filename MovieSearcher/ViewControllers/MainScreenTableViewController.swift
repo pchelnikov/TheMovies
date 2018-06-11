@@ -104,15 +104,48 @@ final class MainScreenTableViewController: UITableViewController {
                 guard let `self` = self else { return }
                 self.emptyDataLabel.isHidden = !isEmptyData
                 self.tableView.reloadData()
-            }).disposed(by: dBag)        
+            }).disposed(by: dBag)
+        
+        model.onError
+            .subscribe(onNext: { [weak self] (error) in
+                guard let `self` = self else { return }
+                self.showError(message: error.description)
+            }).disposed(by: dBag)
     }
     
     private func tapToSearchMovies(for query: String) {
         searchController.isActive = false
-        model.getMovies(for: query)
+        model.lastQuery = query
+        model.loadNextData.onNext(.fromStart)
+    }
+    
+    private func showError(message: String) {
+        showAlertController(self, title: "Error", message: message, style: .one("Ok"), handler: nil)
+    }
+    
+    // MARK: - UIScrollViewDelegate
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard !isSearchBarActive && !model.isPageLoading.value && !model.endOfData.value else { return }
+        
+        let currentOffset = scrollView.contentOffset.y
+        
+        if scrollView.contentSize.height < scrollView.frame.size.height {
+            return
+        }
+        
+        let maiximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset    = maiximumOffset - currentOffset
+        
+        if deltaOffset <= 350 {
+            loadNextData()
+        }
+    }
+    
+    private func loadNextData() {
+        model.loadNextData.onNext(.continueLoading)
     }
 
-    // MARK: UITableViewDelegate, UITableViewDataSource
+    // MARK: - UITableViewDelegate, UITableViewDataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -121,7 +154,7 @@ final class MainScreenTableViewController: UITableViewController {
         if isSearchBarActive {
             return model.queriesHistory.count
         } else {
-            return model.rowsCount
+            return model.movies.count
         }
     }
     
@@ -149,6 +182,7 @@ final class MainScreenTableViewController: UITableViewController {
     }
 }
 
+// MARK: - UISearchBarDelegate
 extension MainScreenTableViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         emptyDataLabel.isHidden = true
