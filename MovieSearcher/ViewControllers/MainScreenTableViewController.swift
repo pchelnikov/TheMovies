@@ -184,18 +184,16 @@ final class MainScreenTableViewController: UITableViewController {
 
 // MARK: - UISearchBarDelegate
 extension MainScreenTableViewController: UISearchBarDelegate {
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         emptyDataLabel.isHidden = true
         isSearchBarActive = true
         tableView.reloadData()
-        return true
     }
     
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         emptyDataLabel.isHidden = false
         isSearchBarActive = false
         tableView.reloadData()
-        return true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

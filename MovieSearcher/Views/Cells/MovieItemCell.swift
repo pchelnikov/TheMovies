@@ -88,4 +88,9 @@ class MovieItemCell: UITableViewCell {
         movieReleaseDateLabel.text = "Release Date: \(movie.releaseDate ?? "")"
         movieOverviewLabel.text    = "Overview: \(movie.overview ?? "")"
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterImageView.image = nil
+    }
 }
