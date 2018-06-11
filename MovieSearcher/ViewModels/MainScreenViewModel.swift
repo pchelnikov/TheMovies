@@ -27,6 +27,7 @@ final class MainScreenViewModel: BaseViewModel {
         }
         
         loadNextData
+            .skip(1)
             .subscribe(onNext: { [weak self] option in
                 guard let `self` = self else { return }
                 self.getMovies(for: self.lastQuery, option: option)
@@ -54,7 +55,7 @@ final class MainScreenViewModel: BaseViewModel {
             .subscribe(onNext: { [weak self] option, response in
                 self?.handleMoviesResponse(response, for: query, with: option)
             }, onError: { [weak self] (error) in
-                self?.handleError(with: error)
+                self?.handleError(error)
             }).disposed(by: dBag)
     }
     
@@ -65,7 +66,7 @@ final class MainScreenViewModel: BaseViewModel {
                 movies = respMovies
                 
                 if respMovies.isEmpty {
-                    onError.onNext(.noResultsError)
+                    self.handleError(ApplicationError.noResultsError)
                 } else {
                     updateQueriesHistory(with: query)
                 }
@@ -80,13 +81,8 @@ final class MainScreenViewModel: BaseViewModel {
             isPageLoading.accept(false)
             inProgress.onNext(false)
         } else {
-            self.handleError(with: ApplicationError.commonError)
+            self.handleError(ApplicationError.commonError)
         }
-    }
-    
-    private func handleError(with error: Error) {
-        self.isPageLoading.accept(false)
-        self.inProgress.onNext(false)
     }
 
     func movieItem(at indexPath: IndexPath) -> Movie? {

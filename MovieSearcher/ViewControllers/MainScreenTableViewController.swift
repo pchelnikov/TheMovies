@@ -107,9 +107,9 @@ final class MainScreenTableViewController: UITableViewController {
             }).disposed(by: dBag)
         
         model.onError
-            .subscribe(onNext: { [weak self] (error) in
+            .subscribe(onNext: { [weak self] (errorMessage) in
                 guard let `self` = self else { return }
-                self.showError(message: error.description)
+                self.showError(message: errorMessage)
             }).disposed(by: dBag)
     }
     

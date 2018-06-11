@@ -6,10 +6,25 @@
 //  Copyright © 2018 Michael Pchelnikov. All rights reserved.
 //
 
+enum ApiError: Error {
+    case commonError, serverError, parseError, responseError
+    
+    var description: String {
+        switch self {
+        case .commonError:
+            return "Please try again"
+        case .parseError:
+            return "Parese Error"
+        case .responseError:
+            return "Response Error"
+        case .serverError:
+            return "Server Error"
+        }
+    }
+}
+
 enum ApplicationError: Error {
-    case commonError
-    case noResultsError
-    case apiError(error: ApiError)
+    case commonError, noResultsError, apiError(error: ApiError)
     
     var description: String {
         switch self {

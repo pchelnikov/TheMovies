@@ -19,6 +19,7 @@ enum LoadOption {
 
 typealias InProgress = Bool
 typealias IsEmptyData = Bool
+typealias ErrorMessage = String
 
 class BaseViewModel {
     
@@ -27,9 +28,25 @@ class BaseViewModel {
     
     let inProgress = PublishSubject<InProgress>()
     var dataRefreshed = PublishSubject<IsEmptyData>()
-    let onError = PublishSubject<ApplicationError>()
+    let onError = PublishSubject<ErrorMessage>()
     
     var loadNextData = BehaviorSubject<LoadOption>(value: LoadOption.fromStart)
     
     var dBag = DisposeBag()
+    
+    func handleError(_ error: Error) {
+        isPageLoading.accept(false)
+        inProgress.onNext(false)
+        
+        switch error {
+        case ApplicationError.commonError:
+            onError.onNext(ApplicationError.commonError.description)
+        case ApplicationError.noResultsError:
+            onError.onNext(ApplicationError.noResultsError.description)
+        case let ApplicationError.apiError(error: apiError):
+            onError.onNext(apiError.description)
+        default:
+            onError.onNext(error.localizedDescription)
+        }
+    }
 }
