@@ -50,7 +50,7 @@ final class APIManager {
      - returns: Observable of MoviesResponse.
      */
     func getMovies(for query: String, page: Int) -> Observable<MoviesResponse> {
-        return call(url: Config.API.searchMovieURL((query: query, page: page)).url)
+        return call(url: Config.API.searchMovie((query: query, page: page)).url)
             .debug()
             .map(MoviesResponse.parse)
     }

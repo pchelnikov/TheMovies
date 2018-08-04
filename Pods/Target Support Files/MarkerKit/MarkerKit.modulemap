@@ -1,0 +1,6 @@
+framework module MarkerKit {
+  umbrella header "MarkerKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

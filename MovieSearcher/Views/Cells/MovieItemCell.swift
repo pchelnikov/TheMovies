@@ -9,6 +9,7 @@
 import UIKit
 
 import Kingfisher
+import MarkerKit
 
 class MovieItemCell: UITableViewCell {
     
@@ -23,17 +24,9 @@ class MovieItemCell: UITableViewCell {
         return imageView
     }()
     
-    private lazy var movieTitleLabel: UILabel = {
-        return Label.custom(UIFont.systemFont(ofSize: 16), color: .primaryColor, lines: 0, alignment: .left)
-    }()
-    
-    private lazy var movieReleaseDateLabel: UILabel = {
-        return Label.custom(UIFont.systemFont(ofSize: 12), color: .black, lines: 1, alignment: .left)
-    }()
-    
-    private lazy var movieOverviewLabel: UILabel = {
-        return Label.custom(UIFont.systemFont(ofSize: 12), color: .black, lines: 0, alignment: .left)
-    }()
+    private let movieTitleLabel = UILabel(font: UIFont.systemFont(ofSize: 16), color: .primaryColor, lines: 0, alignment: .left)
+    private let movieReleaseDateLabel = UILabel(font: UIFont.systemFont(ofSize: 12), color: .black, lines: 1, alignment: .left)
+    private let movieOverviewLabel = UILabel(font: UIFont.systemFont(ofSize: 12), color: .black, lines: 0, alignment: .left)
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

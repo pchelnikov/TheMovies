@@ -10,6 +10,8 @@ target 'MovieSearcher' do
   
   pod 'Kingfisher', '4.8.0'
 
+  pod 'MarkerKit', '1.0.0'
+
   target 'MovieSearcherTests' do
     inherit! :search_paths
     # Pods for testing

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4761E003B85FA69D588BE116 /* Pods_MovieSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F7DDF56228FE525273CE4C /* Pods_MovieSearcher.framework */; };
 		9F14E47FD485F971E33F55C4 /* Pods_MovieSearcherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BFF8FC5801A48BED02877A /* Pods_MovieSearcherUITests.framework */; };
-		C61D63E920CC63080065715B /* MarkerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D63E820CC63070065715B /* MarkerKit.swift */; };
 		C61D63F220CC66E90065715B /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D63F120CC66E90065715B /* MainScreenViewModel.swift */; };
 		C61D63F420CC69F40065715B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D63F320CC69F40065715B /* Config.swift */; };
 		C61D63F720CC70A00065715B /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D63F620CC70A00065715B /* APIManager.swift */; };
@@ -21,9 +20,12 @@
 		C61D640420CC983F0065715B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640320CC983F0065715B /* BaseViewModel.swift */; };
 		C61D640820CC9EB60065715B /* MovieItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640720CC9EB60065715B /* MovieItemCell.swift */; };
 		C61D640A20CC9FCE0065715B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640920CC9FCE0065715B /* Collection+.swift */; };
-		C61D640C20CCA2400065715B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640B20CCA2400065715B /* Label.swift */; };
 		C66C0BE620CE666000B7D42E /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66C0BE520CE666000B7D42E /* AlertService.swift */; };
 		C66C0BE820CE6E3600B7D42E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66C0BE720CE6E3600B7D42E /* AppError.swift */; };
+		C6D7118521165275004E8822 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D7118421165275004E8822 /* TabBarViewController.swift */; };
+		C6D71187211655F1004E8822 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D71186211655F1004E8822 /* EnumCollection.swift */; };
+		C6D711892116569E004E8822 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D711882116569E004E8822 /* UILabel+.swift */; };
+		C6D7118B21165806004E8822 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D7118A21165806004E8822 /* Image.swift */; };
 		C6DDFACB20CAB04700BEAF5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFACA20CAB04700BEAF5B /* AppDelegate.swift */; };
 		C6DDFACD20CAB04700BEAF5B /* MainScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFACC20CAB04700BEAF5B /* MainScreenTableViewController.swift */; };
 		C6DDFAD520CAB04900BEAF5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DDFAD420CAB04900BEAF5B /* Assets.xcassets */; };
@@ -60,7 +62,6 @@
 		A5B14CBB66BB082F9F99C53B /* Pods-MovieSearcherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSearcherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieSearcherTests/Pods-MovieSearcherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2A3A528127AB98532953D41 /* Pods-MovieSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSearcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieSearcher/Pods-MovieSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		BB673EC5E6E3AC0B0C223E90 /* Pods-MovieSearcherUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSearcherUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieSearcherUITests/Pods-MovieSearcherUITests.release.xcconfig"; sourceTree = "<group>"; };
-		C61D63E820CC63070065715B /* MarkerKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerKit.swift; sourceTree = "<group>"; };
 		C61D63F120CC66E90065715B /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		C61D63F320CC69F40065715B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C61D63F620CC70A00065715B /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -72,9 +73,12 @@
 		C61D640320CC983F0065715B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		C61D640720CC9EB60065715B /* MovieItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemCell.swift; sourceTree = "<group>"; };
 		C61D640920CC9FCE0065715B /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
-		C61D640B20CCA2400065715B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		C66C0BE520CE666000B7D42E /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		C66C0BE720CE6E3600B7D42E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		C6D7118421165275004E8822 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		C6D71186211655F1004E8822 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
+		C6D711882116569E004E8822 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		C6D7118A21165806004E8822 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		C6DDFAC720CAB04700BEAF5B /* MovieSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DDFACA20CAB04700BEAF5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DDFACC20CAB04700BEAF5B /* MainScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		C61D63EB20CC65520065715B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6D7118A21165806004E8822 /* Image.swift */,
 				C6DDFAD420CAB04900BEAF5B /* Assets.xcassets */,
 				C6DDFAD620CAB04900BEAF5B /* LaunchScreen.storyboard */,
 			);
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				C6DDFACC20CAB04700BEAF5B /* MainScreenTableViewController.swift */,
+				C6D7118421165275004E8822 /* TabBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -184,6 +190,8 @@
 			children = (
 				C6DDFAFC20CAB32200BEAF5B /* UIColor+.swift */,
 				C61D640920CC9FCE0065715B /* Collection+.swift */,
+				C6D71186211655F1004E8822 /* EnumCollection.swift */,
+				C6D711882116569E004E8822 /* UILabel+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,8 +199,6 @@
 		C61D63EF20CC662E0065715B /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				C61D63E820CC63070065715B /* MarkerKit.swift */,
-				C61D640B20CCA2400065715B /* Label.swift */,
 				C6EC202520CDD50A00817D21 /* QueriesHistoryService.swift */,
 				C66C0BE520CE666000B7D42E /* AlertService.swift */,
 			);
@@ -475,12 +481,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MovieSearcher/Pods-MovieSearcher-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkerKit/MarkerKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkerKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -515,21 +523,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				C61D63F720CC70A00065715B /* APIManager.swift in Sources */,
-				C61D63E920CC63080065715B /* MarkerKit.swift in Sources */,
 				C66C0BE820CE6E3600B7D42E /* AppError.swift in Sources */,
 				C6DDFACD20CAB04700BEAF5B /* MainScreenTableViewController.swift in Sources */,
 				C6EC202620CDD50A00817D21 /* QueriesHistoryService.swift in Sources */,
 				C61D640A20CC9FCE0065715B /* Collection+.swift in Sources */,
 				C61D640420CC983F0065715B /* BaseViewModel.swift in Sources */,
 				C61D63F420CC69F40065715B /* Config.swift in Sources */,
+				C6D711892116569E004E8822 /* UILabel+.swift in Sources */,
+				C6D7118B21165806004E8822 /* Image.swift in Sources */,
+				C6D7118521165275004E8822 /* TabBarViewController.swift in Sources */,
 				C61D640820CC9EB60065715B /* MovieItemCell.swift in Sources */,
 				C61D63FA20CC957D0065715B /* MoviesResults.swift in Sources */,
+				C6D71187211655F1004E8822 /* EnumCollection.swift in Sources */,
 				C6DDFACB20CAB04700BEAF5B /* AppDelegate.swift in Sources */,
 				C61D63FC20CC95950065715B /* MoviesResults+Decodable.swift in Sources */,
 				C6DDFAFD20CAB32200BEAF5B /* UIColor+.swift in Sources */,
 				C61D63FE20CC95B60065715B /* Movie.swift in Sources */,
 				C61D640020CC95CF0065715B /* Movie+Decodable.swift in Sources */,
-				C61D640C20CCA2400065715B /* Label.swift in Sources */,
 				C61D63F220CC66E90065715B /* MainScreenViewModel.swift in Sources */,
 				C66C0BE620CE666000B7D42E /* AlertService.swift in Sources */,
 				C61D640220CC96030065715B /* MoviesResponse.swift in Sources */,

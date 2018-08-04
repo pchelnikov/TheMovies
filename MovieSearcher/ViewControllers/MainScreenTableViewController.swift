@@ -18,7 +18,7 @@ final class MainScreenTableViewController: UITableViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     
     private lazy var emptyDataLabel: UILabel = {
-        let label = Label.custom(UIFont.systemFont(ofSize: 14), color: .black, lines: 0, alignment: .center)
+        let label = UILabel(font: UIFont.systemFont(ofSize: 14), color: .black, lines: 0, alignment: .center)
         label.text = "Please type something and tap Search"
         return label
     }()

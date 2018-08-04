@@ -18,18 +18,18 @@ struct Config {
     static let maxQueriesHistoryCount = 10
     
     enum API {
-        case searchMovieURL(SearchMovieParams)
+        case searchMovie(SearchMovieParams)
         
         var url: String {
             switch self {
-            case let .searchMovieURL(query: query, page: page):
+            case let .searchMovie(query: query, page: page):
                 return "\(URL.base)&query=\(query)&page=\(page)"
             }
         }
     }
     
     struct URL {
-        static let base = "http://api.themoviedb.org/3/search/movie?api_key=2696829a81b1b5827d515ff121700838"
+        static let base = "http://api.themoviedb.org/3/search/movie?api_key=6c52966d9be717e486a2a0c499867009"
         static let basePoster = "http://image.tmdb.org/t/p/w185"
     }
     
