@@ -27,13 +27,10 @@ typealias ErrorMessage = String
 class BaseViewModel {
     
     let isPageLoading = BehaviorRelay<Bool>(value: false)
-    let endOfData = BehaviorRelay<Bool>(value: false)
     
     let inProgress = PublishSubject<InProgress>()
     var dataRefreshed = PublishSubject<IsEmptyData>()
     let onError = PublishSubject<ErrorMessage>()
-    
-    var loadNextData = BehaviorSubject<LoadOption>(value: LoadOption.fromStart)
     
     var dBag = DisposeBag()
     

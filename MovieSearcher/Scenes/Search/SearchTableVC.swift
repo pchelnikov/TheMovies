@@ -1,5 +1,5 @@
 //
-//  MainScreenTableViewController.swift
+//  SearchTableVC.swift
 //  MovieSearcher
 //
 //  Created by Mikhail Pchelnikov on 08/06/2018.
@@ -11,9 +11,9 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class MainScreenTableViewController: UITableViewController {
+final class SearchTableVC: BaseTableVC {
     
-    private let model = MainScreenViewModel()
+    private let model = SearchScreenVM()
     
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -31,29 +31,21 @@ final class MainScreenTableViewController: UITableViewController {
     
     private var dBag = DisposeBag()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupViews()
-        setupConstraints()
-        bind()
-    }
-    
-    private func setupViews() {
-        title = "Movies"
-        
-        view.backgroundColor = .white
-        
+    override func setupViewAndConstraints() {
+        title = "Search"
+
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .always
             navigationController?.navigationBar.prefersLargeTitles = true
         }
-        
+
         setupTableView()
         setupSearchController()
-        
+
         view.addSubview(emptyDataLabel)
         view.addSubview(activityIndicatorView)
+
+        setupConstraints()
     }
     
     private func setupTableView() {
@@ -93,7 +85,7 @@ final class MainScreenTableViewController: UITableViewController {
         activityIndicatorView.mrk.centerY(to: view, relation: .equal, constant: -100)
     }
     
-    private func bind() {
+    override func bind() {
         model.inProgress
             .bind(to: activityIndicatorView.rx.isAnimating)
             .disposed(by: dBag)
@@ -183,7 +175,7 @@ final class MainScreenTableViewController: UITableViewController {
 }
 
 // MARK: - UISearchBarDelegate
-extension MainScreenTableViewController: UISearchBarDelegate {
+extension SearchTableVC: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         emptyDataLabel.isHidden = true
         isSearchBarActive = true

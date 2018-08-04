@@ -28,9 +28,9 @@ final class TabBarViewController: UITabBarController {
     }
 
     private func configureTabBar() {
-        let discoverNavController = UINavigationController(rootViewController: UIViewController())
-        let favoritesNavController = UINavigationController(rootViewController: UIViewController())
-        let searchNavController = UINavigationController(rootViewController: MainScreenTableViewController())
+        let discoverNavController = UINavigationController(rootViewController: DiscoverTableVC())
+        let favoritesNavController = UINavigationController(rootViewController: FavoritesTableVC())
+        let searchNavController = UINavigationController(rootViewController: SearchTableVC())
 
         discoverNavController.tabBarItem = UITabBarItem(title: TabBarItem.discover.title,
                                                         image: Image.by(assetId: .tabBarDiscoverIcon),

@@ -1,5 +1,5 @@
 //
-//  MainScreenViewModel.swift
+//  SearchScreenVM.swift
 //  MovieSearcher
 //
 //  Created by Mikhail Pchelnikov on 09/06/2018.
@@ -8,9 +8,13 @@
 
 import Foundation
 
+import RxCocoa
 import RxSwift
 
-final class MainScreenViewModel: BaseViewModel {
+final class SearchScreenVM: BaseViewModel {
+
+    let endOfData = BehaviorRelay<Bool>(value: false)
+    var loadNextData = BehaviorSubject<LoadOption>(value: LoadOption.fromStart)
 
     var lastQuery: String = ""
     
