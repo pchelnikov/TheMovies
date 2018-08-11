@@ -21,14 +21,14 @@ struct Config {
     
     enum API {
         case searchMovie(SearchMovieParams)
-        case discoverPopularMovies
+        case discoverPopularMovies(page: Int)
         
         var url: String {
             switch self {
             case let .searchMovie(query: query, page: page):
                 return "\(URL.base)/search/movie?api_key=\(Config.apiKey)&query=\(query)&page=\(page)"
-            case .discoverPopularMovies:
-                return "\(URL.base)/discover/movie?api_key=\(Config.apiKey)&sort_by=popularity.desc"
+            case let .discoverPopularMovies(page: page):
+                return "\(URL.base)/discover/movie?api_key=\(Config.apiKey)&page=\(page)&sort_by=popularity.desc"
             }
         }
     }

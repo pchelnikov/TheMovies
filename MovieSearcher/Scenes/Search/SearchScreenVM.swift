@@ -11,9 +11,8 @@ import RxSwift
 
 final class SearchScreenVM: BaseViewModel {
 
+    let loadNextData = BehaviorSubject<LoadOption>(value: LoadOption.fromStart)
     let endOfData = BehaviorRelay<Bool>(value: false)
-
-    var loadNextData = BehaviorSubject<LoadOption>(value: LoadOption.fromStart)
 
     var lastQuery: String = ""
     

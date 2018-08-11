@@ -23,8 +23,6 @@ final class SearchTableVC: BaseTableVC {
         return label
     }()
     
-    private let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    
     private var isSearchBarActive = false
 
     override func setupViewAndConstraints() {
@@ -38,7 +36,7 @@ final class SearchTableVC: BaseTableVC {
         setupTableView()
         setupSearchController()
 
-        view.add(subviews: emptyDataLabel, activityIndicatorView)
+        view.add(subviews: emptyDataLabel)
 
         setupConstraints()
     }
@@ -75,9 +73,6 @@ final class SearchTableVC: BaseTableVC {
         emptyDataLabel.mrk.centerY(to: view, relation: .equal, constant: -100)
         emptyDataLabel.mrk.leading(to: view, attribute: .leading, relation: .equal, constant: 20)
         emptyDataLabel.mrk.trailing(to: view, attribute: .trailing, relation: .equal, constant: -20)
-        
-        activityIndicatorView.mrk.centerX(to: view)
-        activityIndicatorView.mrk.centerY(to: view, relation: .equal, constant: -100)
     }
     
     override func bind() {
@@ -94,10 +89,8 @@ final class SearchTableVC: BaseTableVC {
             }).disposed(by: disposeBag)
         
         model.onError
-            .subscribe(onNext: { [weak self] (errorMessage) in
-                guard let `self` = self else { return }
-                self.showError(message: errorMessage)
-            }).disposed(by: disposeBag)
+            .subscribe(onNext: { [weak self] message in self?.showError(message: message) })
+            .disposed(by: disposeBag)
     }
     
     private func tapToSearchMovies(for query: String) {
@@ -106,24 +99,11 @@ final class SearchTableVC: BaseTableVC {
         model.loadNextData.onNext(.fromStart)
     }
     
-    private func showError(message: String) {
-        showAlertController(self, title: "Error", message: message, style: .one("Ok"), handler: nil)
-    }
-    
     // MARK: - UIScrollViewDelegate
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard !isSearchBarActive && !model.isPageLoading.value && !model.endOfData.value else { return }
         
-        let currentOffset = scrollView.contentOffset.y
-        
-        if scrollView.contentSize.height < scrollView.frame.size.height {
-            return
-        }
-        
-        let maiximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-        let deltaOffset    = maiximumOffset - currentOffset
-        
-        if deltaOffset <= 350 {
+        if isCanLoadNextData(for: scrollView) {
             loadNextData()
         }
     }

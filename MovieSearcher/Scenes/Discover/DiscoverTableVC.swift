@@ -44,10 +44,14 @@ final class DiscoverTableVC: BaseTableVC {
     }
 
     override func bind() {
+        model.inProgress
+            .bind(to: activityIndicatorView.rx.isAnimating)
+            .disposed(by: disposeBag)
+
         tableRefreshControl.rx
             .controlEvent(.valueChanged)
             .asObservable()
-            .subscribe(onNext: { [weak self] in self?.model.refreshData.onNext(()) })
+            .subscribe(onNext: { [weak self] in self?.model.loadNextData.onNext(.fromStart) })
             .disposed(by: disposeBag)
 
         model.dataRefreshed
@@ -57,6 +61,10 @@ final class DiscoverTableVC: BaseTableVC {
                 self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             }).disposed(by: disposeBag)
+
+        model.onError
+            .subscribe(onNext: { [weak self] message in self?.showError(message: message) })
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Table view data source
@@ -75,5 +83,18 @@ final class DiscoverTableVC: BaseTableVC {
             cell.setup(with: movieItem)
         }
         return cell
+    }
+
+    // MARK: - UIScrollViewDelegate
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard !model.isPageLoading.value && !model.endOfData.value else { return }
+
+        if isCanLoadNextData(for: scrollView) {
+            loadNextData()
+        }
+    }
+
+    private func loadNextData() {
+        model.loadNextData.onNext(.continueLoading)
     }
 }

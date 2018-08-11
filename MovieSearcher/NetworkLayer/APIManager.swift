@@ -61,8 +61,8 @@ final class APIManager {
 
      - returns: Observable of MoviesResponse.
      */
-    func discoverPopularMovies() -> Observable<MoviesResponse> {
-        return call(url: Config.API.discoverPopularMovies.url)
+    func discoverPopularMovies(page: Int) -> Observable<MoviesResponse> {
+        return call(url: Config.API.discoverPopularMovies(page: page).url)
             .debug()
             .map(MoviesResponse.parse)
     }
