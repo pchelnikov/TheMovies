@@ -115,15 +115,10 @@ public struct MarkerConstraintView {
     
     @discardableResult
     public func center(to view: Any?) -> [NSLayoutConstraint] {
-        var constraints: [NSLayoutConstraint] = []
-        
-        if let superview = self.view.superview {
-            let centerXConstraint = centerX(to: superview)
-            let centerYConstraint = centerY(to: superview)
-            
-            constraints = [centerXConstraint, centerYConstraint]
-        }
-        
+        let centerXConstraint = centerX(to: view)
+        let centerYConstraint = centerY(to: view)
+        let constraints = [centerXConstraint, centerYConstraint]
+
         return constraints
     }
 

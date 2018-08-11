@@ -23,9 +23,7 @@ final class SearchTableVC: BaseTableVC {
         return label
     }()
     
-    private lazy var activityIndicatorView: UIActivityIndicatorView = {
-        return UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    }()
+    private let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
     private var isSearchBarActive = false
     
@@ -42,15 +40,14 @@ final class SearchTableVC: BaseTableVC {
         setupTableView()
         setupSearchController()
 
-        view.addSubview(emptyDataLabel)
-        view.addSubview(activityIndicatorView)
+        view.add(subviews: emptyDataLabel, activityIndicatorView)
 
         setupConstraints()
     }
     
     private func setupTableView() {
-        tableView.separatorStyle     = .none
-        tableView.estimatedRowHeight = 100.0
+        tableView.separatorStyle     = .singleLine
+        tableView.estimatedRowHeight = 200.0
         tableView.rowHeight          = UITableViewAutomaticDimension
         tableView.tableFooterView    = UIView()
         

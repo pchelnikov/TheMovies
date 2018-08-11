@@ -14,8 +14,8 @@ import MarkerKit
 class MovieItemCell: UITableViewCell {
     
     private struct Sizes {
-        static let posterDefaultWidth: CGFloat = 185 / 2
-        static let posterDefaultHeight: CGFloat = 278 / 2
+        static let posterDefaultWidth: CGFloat = 125
+        static let posterDefaultHeight: CGFloat = 188
     }
     
     private lazy var posterImageView: UIImageView = {
@@ -24,9 +24,11 @@ class MovieItemCell: UITableViewCell {
         return imageView
     }()
     
-    private let movieTitleLabel = UILabel(font: UIFont.systemFont(ofSize: 16), color: .primaryColor, lines: 0, alignment: .left)
-    private let movieReleaseDateLabel = UILabel(font: UIFont.systemFont(ofSize: 12), color: .black, lines: 1, alignment: .left)
-    private let movieOverviewLabel = UILabel(font: UIFont.systemFont(ofSize: 12), color: .black, lines: 0, alignment: .left)
+    private let movieTitleLabel = UILabel(font: UIFont.systemFont(ofSize: 17, weight: .semibold), color: .black, lines: 1, alignment: .left)
+    private let disclosureImageView = UIImageView(image: Image.by(assetId: .disclosureIndicator))
+    private let movieOverviewLabel = UILabel(font: UIFont.systemFont(ofSize: 14, weight: .light), color: .black, lines: 0, alignment: .left)
+    private let releaseDateFrameImageView = UIImageView(image: Image.by(assetId: .iconReleaseFrame))
+    private let releaseDateLabel = UILabel(font: UIFont.systemFont(ofSize: 15, weight: .light), color: .black, lines: 1, alignment: .center)
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,33 +42,39 @@ class MovieItemCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.addSubview(posterImageView)
-        contentView.addSubview(movieTitleLabel)
-        contentView.addSubview(movieReleaseDateLabel)
-        contentView.addSubview(movieOverviewLabel)
+        contentView.add(subviews: posterImageView, movieTitleLabel, disclosureImageView,
+                        movieOverviewLabel, releaseDateFrameImageView, releaseDateLabel)
     }
     
     private func setupConstraints() {
-        posterImageView.mrk.top(to: contentView, attribute: .top, relation: .equal, constant: 10)
-        posterImageView.mrk.leading(to: contentView, attribute: .leading, relation: .equal, constant: 10)
+        //TODO: fix the constraints
+        posterImageView.mrk.top(to: contentView, attribute: .top, relation: .equal, constant: 5)
+        posterImageView.mrk.leading(to: contentView, attribute: .leading, relation: .equal, constant: 0)
         posterImageView.mrk.width(Sizes.posterDefaultWidth)
         posterImageView.mrk.height(Sizes.posterDefaultHeight)
-        posterImageView.mrk.bottom(to: contentView, attribute: .bottom, relation: .lessThanOrEqual, constant: -20)
+        //posterImageView.mrk.bottom(to: contentView, attribute: .bottom, relation: .lessThanOrEqual, constant: -7)
+        posterImageView.mrk.bottom(to: contentView, attribute: .bottom, relation: .equal, constant: -7)
         
         posterImageView.setContentHuggingPriority(UILayoutPriority(999), for: .vertical)
         
-        movieTitleLabel.mrk.top(to: posterImageView, attribute: .top, relation: .equal, constant: 0)
-        movieTitleLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 10)
-        movieTitleLabel.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -10)
+        movieTitleLabel.mrk.top(to: contentView, attribute: .top, relation: .equal, constant: 6)
+        movieTitleLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 12)
+        movieTitleLabel.mrk.trailing(to: disclosureImageView, attribute: .leading, relation: .equal, constant: -13)
+
+        disclosureImageView.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -19)
+        disclosureImageView.mrk.width(8)
+        disclosureImageView.mrk.centerY(to: movieTitleLabel)
         
-        movieReleaseDateLabel.mrk.top(to: movieTitleLabel, attribute: .bottom, relation: .equal, constant: 4)
-        movieReleaseDateLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 10)
-        movieReleaseDateLabel.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -10)
-        
-        movieOverviewLabel.mrk.top(to: movieReleaseDateLabel, attribute: .bottom, relation: .equal, constant: 4)
-        movieOverviewLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 10)
-        movieOverviewLabel.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -10)
-        movieOverviewLabel.mrk.bottom(to: contentView, attribute: .bottom, relation: .lessThanOrEqual, constant: -20)
+        movieOverviewLabel.mrk.top(to: movieTitleLabel, attribute: .bottom, relation: .equal, constant: 7)
+        movieOverviewLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 12)
+        movieOverviewLabel.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -19)
+        //movieOverviewLabel.mrk.bottom(to: releaseDateFrameImageView, attribute: .top, relation: .lessThanOrEqual, constant: -9)
+        movieOverviewLabel.mrk.height(120)
+
+        releaseDateFrameImageView.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 12)
+        releaseDateFrameImageView.mrk.bottom(to: contentView, attribute: .bottom, relation: .equal, constant: -6)
+
+        releaseDateLabel.mrk.center(to: releaseDateFrameImageView)
     }
     
     /**
@@ -80,13 +88,19 @@ class MovieItemCell: UITableViewCell {
             }
         }
         
-        movieTitleLabel.text       = movie.title
-        movieReleaseDateLabel.text = "Release Date: \(movie.releaseDate ?? "")"
-        movieOverviewLabel.text    = "Overview: \(movie.overview ?? "")"
+        movieTitleLabel.text    = movie.title
+        movieOverviewLabel.text = movie.overview ?? ""
+
+        if let releaseDate = movie.releaseDate {
+            let year = Calendar.current.component(.year, from: releaseDate)
+            releaseDateLabel.text = "\(year)"
+        }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         posterImageView.image = nil
+        movieOverviewLabel.text = nil
+        releaseDateLabel.text = nil
     }
 }

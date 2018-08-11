@@ -18,4 +18,7 @@ enum ImageAssetId: String, EnumCollection {
 
     //TabBar
     case tabBarDiscoverIcon, tabBarFavoritesIcon, tabBarSearchIcon
+
+    //Common
+    case disclosureIndicator, iconReleaseFrame
 }

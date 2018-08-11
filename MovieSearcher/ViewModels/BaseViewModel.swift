@@ -32,7 +32,7 @@ class BaseViewModel {
     var dataRefreshed = PublishSubject<IsEmptyData>()
     let onError = PublishSubject<ErrorMessage>()
     
-    var dBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     func handleError(_ error: Error) {
         isPageLoading.accept(false)

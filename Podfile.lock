@@ -1,13 +1,13 @@
 PODS:
   - Kingfisher (4.8.0)
-  - MarkerKit (1.0.0)
+  - MarkerKit (1.1.0)
   - RxCocoa (4.2.0):
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
 
 DEPENDENCIES:
   - Kingfisher (= 4.8.0)
-  - MarkerKit (= 1.0.0)
+  - MarkerKit (= 1.1.0)
   - RxCocoa (= 4.2.0)
   - RxSwift (= 4.2.0)
 
@@ -20,10 +20,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
-  MarkerKit: ad95bb8e16f470c81707f49ef78ac26a55543eb7
+  MarkerKit: 4b51e234e32695959550979bb7bd45dfb1aa9399
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 
-PODFILE CHECKSUM: beced5eebaa8003b1bad293ed5f5ce4de6d15203
+PODFILE CHECKSUM: e0b15082e5b9a89d39f00cefd4db47a09d975c91
 
 COCOAPODS: 1.5.3

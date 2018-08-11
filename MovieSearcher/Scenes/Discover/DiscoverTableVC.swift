@@ -8,21 +8,48 @@
 
 import UIKit
 
-final class DiscoverTableVC: UITableViewController {
+import RxCocoa
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+final class DiscoverTableVC: BaseTableVC {
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    private let model = DiscoverVM()
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    private lazy var tableRefreshControl: UIRefreshControl = {
+        let rc = UIRefreshControl()
+        rc.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        return rc
+    }()
+
+    override func setupViewAndConstraints() {
+        navigationItem.title = "The Movie DB"
+
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .always
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+
+        setupTableView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func setupTableView() {
+        refreshControl = tableRefreshControl
+
+        tableView.separatorStyle     = .singleLine
+        tableView.estimatedRowHeight = 200.0
+        tableView.rowHeight          = UITableViewAutomaticDimension
+        tableView.tableFooterView    = UIView()
+
+        tableView.register(MovieItemCell.self, forCellReuseIdentifier: Config.CellIdentifier.MovieTable.movieCell)
+    }
+
+    override func bind() {
+        tableRefreshControl.rx
+            .controlEvent(.valueChanged)
+            .asObservable()
+            .subscribe(onNext: { [weak self] in self?.model.refreshData.onNext(()) })
+            .disposed(by: disposeBag)
+
+        //refreshControl?.endRefreshing()
     }
 
     // MARK: - Table view data source
@@ -46,50 +73,4 @@ final class DiscoverTableVC: UITableViewController {
      return cell
      }
      */
-
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-     }
-     */
-
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-
 }

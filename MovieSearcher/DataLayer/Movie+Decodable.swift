@@ -26,6 +26,6 @@ extension Movie: Decodable {
         self.title       = try? values.decode(String.self, forKey: .title)
         self.overview    = try? values.decode(String.self, forKey: .overview)
         self.posterPath  = try? values.decode(String.self, forKey: .posterPath)
-        self.releaseDate = try? values.decode(String.self, forKey: .releaseDate)
+        self.releaseDate = try? values.decode(Date.self, forKey: .releaseDate)
     }
 }

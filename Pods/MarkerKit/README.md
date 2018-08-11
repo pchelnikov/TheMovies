@@ -1,7 +1,12 @@
 ![MarkerKit](https://github.com/pchelnikov/MarkerKit/blob/master/Assets/marker-kit.jpg)
 
 # MarkerKit
-Lightweight and easy to use wrapper for Auto Layout Constraints (iOS 8+ support), inspired by: [https://github.com/ustwo/autolayout-helper-swift](https://github.com/ustwo/autolayout-helper-swift)
+Lightweight and easy to use wrapper for Auto Layout Constraints (iOS 8+ support), inspired by [https://github.com/ustwo/autolayout-helper-swift](https://github.com/ustwo/autolayout-helper-swift)
+
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/pchelnikov/MarkerKit/blob/master/LICENSE)
+[![Platform](https://img.shields.io/cocoapods/p/MarkerKit.svg?style=flat)](https://github.com/pchelnikov/MarkerKit)
+[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/MarkerKit.svg)](https://cocoapods.org/pods/MarkerKit)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Requirements
 
@@ -10,6 +15,29 @@ Lightweight and easy to use wrapper for Auto Layout Constraints (iOS 8+ support)
 - Swift 4.0+
 
 ## Installation
+
+### CocoaPods
+
+You can use [CocoaPods](http://cocoapods.org/?q=MarkerKit).
+
+```bash
+platform :ios, '8.0'
+use_frameworks!
+
+target 'MyApp' do
+  pod 'MarkerKit'
+end
+```
+
+#### Carthage 
+You can use [Carthage](https://github.com/Carthage/Carthage). 
+Specify in Cartfile:
+
+```bash
+github "pchelnikov/MarkerKit"
+```
+
+Run `carthage` to build the framework and drag the built MarkerKit.framework into your Xcode project. Follow [build instructions](https://github.com/Carthage/Carthage#getting-started).
 
 ### Manually
 
@@ -119,11 +147,9 @@ UIView.animate(withDuration: 0.3) {
 ```
 
 ## What to do next
-* CocoaPods suppot
-* Carthage support
-* Swift Package Manager support
+
 * Writing tests
 
 ## License
 
-Device is available under the MIT license. See the LICENSE file for more info.
+MarkerKit is available under the MIT license. See the LICENSE file for more info.

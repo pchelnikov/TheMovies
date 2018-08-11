@@ -22,6 +22,8 @@
 		C61D640420CC983F0065715B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640320CC983F0065715B /* BaseViewModel.swift */; };
 		C61D640820CC9EB60065715B /* MovieItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640720CC9EB60065715B /* MovieItemCell.swift */; };
 		C61D640A20CC9FCE0065715B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D640920CC9FCE0065715B /* Collection+.swift */; };
+		C65C2A9A211F883300759E8A /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C2A99211F883300759E8A /* UIView+.swift */; };
+		C65C2A9C211F90ED00759E8A /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C2A9B211F90ED00759E8A /* DateFormatter+.swift */; };
 		C66C0BE620CE666000B7D42E /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66C0BE520CE666000B7D42E /* AlertService.swift */; };
 		C66C0BE820CE6E3600B7D42E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66C0BE720CE6E3600B7D42E /* AppError.swift */; };
 		C6D7118521165275004E8822 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D7118421165275004E8822 /* TabBarViewController.swift */; };
@@ -37,6 +39,7 @@
 		C6DDFAFD20CAB32200BEAF5B /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFAFC20CAB32200BEAF5B /* UIColor+.swift */; };
 		C6EC202620CDD50A00817D21 /* QueriesHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EC202520CDD50A00817D21 /* QueriesHistoryService.swift */; };
 		C6F2EB6321165F6C0097CF7F /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F2EB6221165F6C0097CF7F /* BaseTableVC.swift */; };
+		C6F9161A2117885A00526B26 /* DiscoverVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F916192117885A00526B26 /* DiscoverVM.swift */; };
 		DF51E69A134C27D29DBCC48A /* Pods_MovieSearcherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67439EBAC6B2A46EF653846 /* Pods_MovieSearcherTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +81,8 @@
 		C61D640320CC983F0065715B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		C61D640720CC9EB60065715B /* MovieItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemCell.swift; sourceTree = "<group>"; };
 		C61D640920CC9FCE0065715B /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
+		C65C2A99211F883300759E8A /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		C65C2A9B211F90ED00759E8A /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		C66C0BE520CE666000B7D42E /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		C66C0BE720CE6E3600B7D42E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		C6D7118421165275004E8822 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +104,7 @@
 		C6DDFAFC20CAB32200BEAF5B /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		C6EC202520CDD50A00817D21 /* QueriesHistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesHistoryService.swift; sourceTree = "<group>"; };
 		C6F2EB6221165F6C0097CF7F /* BaseTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
+		C6F916192117885A00526B26 /* DiscoverVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVM.swift; sourceTree = "<group>"; };
 		D3FC13FFAF068EB43A2B4525 /* Pods-MovieSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSearcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieSearcher/Pods-MovieSearcher.release.xcconfig"; sourceTree = "<group>"; };
 		D67439EBAC6B2A46EF653846 /* Pods_MovieSearcherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieSearcherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -168,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				C60317E021165B440072ABF1 /* DiscoverTableVC.swift */,
+				C6F916192117885A00526B26 /* DiscoverVM.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -229,10 +236,12 @@
 		C61D63EE20CC66240065715B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C6DDFAFC20CAB32200BEAF5B /* UIColor+.swift */,
 				C61D640920CC9FCE0065715B /* Collection+.swift */,
 				C6D71186211655F1004E8822 /* EnumCollection.swift */,
+				C6DDFAFC20CAB32200BEAF5B /* UIColor+.swift */,
 				C6D711882116569E004E8822 /* UILabel+.swift */,
+				C65C2A99211F883300759E8A /* UIView+.swift */,
+				C65C2A9B211F90ED00759E8A /* DateFormatter+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -564,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C61D63F720CC70A00065715B /* APIManager.swift in Sources */,
+				C6F9161A2117885A00526B26 /* DiscoverVM.swift in Sources */,
 				C66C0BE820CE6E3600B7D42E /* AppError.swift in Sources */,
 				C6DDFACD20CAB04700BEAF5B /* SearchTableVC.swift in Sources */,
 				C6EC202620CDD50A00817D21 /* QueriesHistoryService.swift in Sources */,
@@ -572,6 +582,7 @@
 				C60317E721165C770072ABF1 /* FavoritesTableVC.swift in Sources */,
 				C61D63F420CC69F40065715B /* Config.swift in Sources */,
 				C6D711892116569E004E8822 /* UILabel+.swift in Sources */,
+				C65C2A9A211F883300759E8A /* UIView+.swift in Sources */,
 				C6D7118B21165806004E8822 /* Image.swift in Sources */,
 				C6D7118521165275004E8822 /* TabBarViewController.swift in Sources */,
 				C61D640820CC9EB60065715B /* MovieItemCell.swift in Sources */,
@@ -582,6 +593,7 @@
 				C6F2EB6321165F6C0097CF7F /* BaseTableVC.swift in Sources */,
 				C6DDFAFD20CAB32200BEAF5B /* UIColor+.swift in Sources */,
 				C61D63FE20CC95B60065715B /* Movie.swift in Sources */,
+				C65C2A9C211F90ED00759E8A /* DateFormatter+.swift in Sources */,
 				C61D640020CC95CF0065715B /* Movie+Decodable.swift in Sources */,
 				C61D63F220CC66E90065715B /* SearchScreenVM.swift in Sources */,
 				C60317E121165B440072ABF1 /* DiscoverTableVC.swift in Sources */,

@@ -2060,6 +2060,43 @@
 			};
 			name = Debug;
 		};
+		449A4F4339BD46BB1B3EBFD7EFAFEA82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C52272E6B722FB003114AA8D81BB5C5 /* MarkerKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MarkerKit/MarkerKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MarkerKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MarkerKit/MarkerKit.modulemap";
+				PRODUCT_MODULE_NAME = MarkerKit;
+				PRODUCT_NAME = MarkerKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		4CDD67ADF724BBC42C5D9E8BF32C0BA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 36BF0CD9B985444419DEDBDE40694F5D /* Pods-MovieSearcher.release.xcconfig */;
@@ -2099,6 +2136,42 @@
 			};
 			name = Release;
 		};
+		64C5546F1853057817484FA3DBA2D070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C52272E6B722FB003114AA8D81BB5C5 /* MarkerKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MarkerKit/MarkerKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MarkerKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MarkerKit/MarkerKit.modulemap";
+				PRODUCT_MODULE_NAME = MarkerKit;
+				PRODUCT_NAME = MarkerKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		7214179E59E32B6D452103A66131DA3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49B2B30ADCC9BDF10B8B64F179FD3CE2 /* Pods-MovieSearcherUITests.debug.xcconfig */;
@@ -2135,43 +2208,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		A51A51CC8968F70870B07784B4A48992 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C52272E6B722FB003114AA8D81BB5C5 /* MarkerKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MarkerKit/MarkerKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MarkerKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/MarkerKit/MarkerKit.modulemap";
-				PRODUCT_MODULE_NAME = MarkerKit;
-				PRODUCT_NAME = MarkerKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		AF396EA55974FE98050AC7213B960847 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2346,42 +2382,6 @@
 				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
 				PRODUCT_MODULE_NAME = Kingfisher;
 				PRODUCT_NAME = Kingfisher;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D723E1ADC5D7E85BB7FE3C3A092EDE4E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C52272E6B722FB003114AA8D81BB5C5 /* MarkerKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MarkerKit/MarkerKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MarkerKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/MarkerKit/MarkerKit.modulemap";
-				PRODUCT_MODULE_NAME = MarkerKit;
-				PRODUCT_NAME = MarkerKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -2613,8 +2613,8 @@
 		BB5EF1B8400D7417F886460F0C66858D /* Build configuration list for PBXNativeTarget "MarkerKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D723E1ADC5D7E85BB7FE3C3A092EDE4E /* Debug */,
-				A51A51CC8968F70870B07784B4A48992 /* Release */,
+				64C5546F1853057817484FA3DBA2D070 /* Debug */,
+				449A4F4339BD46BB1B3EBFD7EFAFEA82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

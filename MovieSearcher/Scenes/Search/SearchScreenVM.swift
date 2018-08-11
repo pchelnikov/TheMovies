@@ -6,14 +6,13 @@
 //  Copyright © 2018 Michael Pchelnikov. All rights reserved.
 //
 
-import Foundation
-
 import RxCocoa
 import RxSwift
 
 final class SearchScreenVM: BaseViewModel {
 
     let endOfData = BehaviorRelay<Bool>(value: false)
+
     var loadNextData = BehaviorSubject<LoadOption>(value: LoadOption.fromStart)
 
     var lastQuery: String = ""
@@ -35,7 +34,7 @@ final class SearchScreenVM: BaseViewModel {
             .subscribe(onNext: { [weak self] option in
                 guard let `self` = self else { return }
                 self.getMovies(for: self.lastQuery, option: option)
-            }).disposed(by: dBag)
+            }).disposed(by: disposeBag)
     }
     
     private func getMovies(for query: String, option: LoadOption) {
@@ -60,7 +59,7 @@ final class SearchScreenVM: BaseViewModel {
                 self?.handleMoviesResponse(response, for: query, with: option)
             }, onError: { [weak self] (error) in
                 self?.handleError(error)
-            }).disposed(by: dBag)
+            }).disposed(by: disposeBag)
     }
     
     private func handleMoviesResponse(_ response: MoviesResponse, for query: String, with option: LoadOption) {

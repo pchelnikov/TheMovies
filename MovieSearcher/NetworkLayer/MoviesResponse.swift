@@ -24,7 +24,8 @@ enum MoviesResponse {
      */
     static func parse(_ jsonData: Data) -> MoviesResponse {
         let decoder = JSONDecoder()
-        
+        decoder.dateDecodingStrategy = .formatted(.yyyyMMdd)
+
         do {
             let results = try decoder.decode(MoviesResults.self, from: jsonData)
             return .success(movies: results.movies)
