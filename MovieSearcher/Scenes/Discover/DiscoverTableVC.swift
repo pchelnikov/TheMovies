@@ -9,6 +9,7 @@
 import UIKit
 
 import RxCocoa
+import RxSwift
 
 final class DiscoverTableVC: BaseTableVC {
 
@@ -49,28 +50,30 @@ final class DiscoverTableVC: BaseTableVC {
             .subscribe(onNext: { [weak self] in self?.model.refreshData.onNext(()) })
             .disposed(by: disposeBag)
 
-        //refreshControl?.endRefreshing()
+        model.dataRefreshed
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                guard let `self` = self else { return }
+                self.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            }).disposed(by: disposeBag)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return model.movies.count
     }
 
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-     // Configure the cell...
-
-     return cell
-     }
-     */
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Config.CellIdentifier.MovieTable.movieCell, for: indexPath) as! MovieItemCell
+        if let movieItem = model.movieItem(at: indexPath) {
+            cell.setup(with: movieItem)
+        }
+        return cell
+    }
 }

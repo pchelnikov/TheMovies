@@ -26,11 +26,9 @@ final class SearchTableVC: BaseTableVC {
     private let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
     private var isSearchBarActive = false
-    
-    private var dBag = DisposeBag()
 
     override func setupViewAndConstraints() {
-        title = "Search"
+        navigationItem.title = "Search"
 
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .always
@@ -85,7 +83,7 @@ final class SearchTableVC: BaseTableVC {
     override func bind() {
         model.inProgress
             .bind(to: activityIndicatorView.rx.isAnimating)
-            .disposed(by: dBag)
+            .disposed(by: disposeBag)
         
         model.dataRefreshed
             .observeOn(MainScheduler.instance)
@@ -93,13 +91,13 @@ final class SearchTableVC: BaseTableVC {
                 guard let `self` = self else { return }
                 self.emptyDataLabel.isHidden = !isEmptyData
                 self.tableView.reloadData()
-            }).disposed(by: dBag)
+            }).disposed(by: disposeBag)
         
         model.onError
             .subscribe(onNext: { [weak self] (errorMessage) in
                 guard let `self` = self else { return }
                 self.showError(message: errorMessage)
-            }).disposed(by: dBag)
+            }).disposed(by: disposeBag)
     }
     
     private func tapToSearchMovies(for query: String) {
