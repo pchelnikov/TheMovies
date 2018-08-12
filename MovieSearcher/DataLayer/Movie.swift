@@ -12,7 +12,8 @@ import Foundation
  Data structure for movie object.
  */
 struct Movie: Equatable {
-    
+
+    let id: Int64?
     let title: String?
     let overview: String?
     let posterPath: String?

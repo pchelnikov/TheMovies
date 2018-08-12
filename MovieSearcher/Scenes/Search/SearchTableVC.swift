@@ -18,7 +18,7 @@ final class SearchTableVC: BaseTableVC {
     private let searchController = UISearchController(searchResultsController: nil)
     
     private lazy var emptyDataLabel: UILabel = {
-        let label = UILabel(font: UIFont.systemFont(ofSize: 14), color: .black, lines: 0, alignment: .center)
+        let label = UILabel(font: .systemFont(ofSize: 14), alignment: .center)
         label.text = "Please type something and tap Search"
         return label
     }()
@@ -26,6 +26,8 @@ final class SearchTableVC: BaseTableVC {
     private var isSearchBarActive = false
 
     override func setupViewAndConstraints() {
+        super.setupViewAndConstraints()
+
         navigationItem.title = "Search"
 
         if #available(iOS 11.0, *) {
@@ -33,20 +35,13 @@ final class SearchTableVC: BaseTableVC {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
 
-        setupTableView()
-        setupSearchController()
-
         view.add(subviews: emptyDataLabel)
 
+        setupSearchController()
         setupConstraints()
     }
     
-    private func setupTableView() {
-        tableView.separatorStyle     = .singleLine
-        tableView.estimatedRowHeight = 200.0
-        tableView.rowHeight          = UITableViewAutomaticDimension
-        tableView.tableFooterView    = UIView()
-        
+    override func setupTableView() {
         tableView.register(MovieItemCell.self, forCellReuseIdentifier: Config.CellIdentifier.MovieTable.movieCell)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Config.CellIdentifier.MovieTable.historyCell)
     }
@@ -145,6 +140,14 @@ final class SearchTableVC: BaseTableVC {
         if isSearchBarActive {
             guard let query = model.historicalQuery(at: indexPath) else { return }
             tapToSearchMovies(for: query)
+        } else {
+            guard let movieItem = model.movieItem(at: indexPath), let id = movieItem.id else {
+                tableView.deselectRow(at: indexPath, animated: true)
+                return
+            }
+            let controller = MovieDeatilsVC(movieId: id)
+            controller.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(controller, animated: true)
         }
     }
 }

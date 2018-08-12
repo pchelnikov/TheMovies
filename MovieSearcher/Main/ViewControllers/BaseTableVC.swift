@@ -22,21 +22,32 @@ class BaseTableVC: UITableViewController {
 
         view.backgroundColor = .white
 
+        setupTableView()
         setupViewAndConstraints()
+        setupActivityIndicator()
         bind()
+    }
 
+    func setupTableView() {
+        tableView.separatorStyle     = .singleLine
+        tableView.estimatedRowHeight = 200.0
+        tableView.rowHeight          = UITableViewAutomaticDimension
+        tableView.tableFooterView    = UIView()
+    }
+
+    func setupViewAndConstraints() {
+        
+    }
+
+    private func setupActivityIndicator() {
         view.addSubview(activityIndicatorView)
 
         activityIndicatorView.mrk.centerX(to: view)
         activityIndicatorView.mrk.centerY(to: view, relation: .equal, constant: -100)
     }
 
-    func setupViewAndConstraints() {
-
-    }
-
     func bind() {
-        
+
     }
 
     final func showError(message: String) {

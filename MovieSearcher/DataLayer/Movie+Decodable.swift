@@ -14,6 +14,7 @@ import Foundation
 extension Movie: Decodable {
     
     enum CodingKeys: String, CodingKey {
+        case id          = "id"
         case title       = "title"
         case overview    = "overview"
         case posterPath  = "poster_path"
@@ -22,7 +23,8 @@ extension Movie: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        
+
+        self.id          = try? values.decode(Int64.self, forKey: .id)
         self.title       = try? values.decode(String.self, forKey: .title)
         self.overview    = try? values.decode(String.self, forKey: .overview)
         self.posterPath  = try? values.decode(String.self, forKey: .posterPath)

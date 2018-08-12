@@ -21,24 +21,20 @@ final class DiscoverTableVC: BaseTableVC {
         return rc
     }()
 
-    override func setupViewAndConstraints() {
-        navigationItem.title = "The Movie DB"
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .always
             navigationController?.navigationBar.prefersLargeTitles = true
         }
-
-        setupTableView()
     }
 
-    private func setupTableView() {
-        refreshControl = tableRefreshControl
+    override func setupViewAndConstraints() {
+        navigationItem.title = "The Movie DB"
+    }
 
-        tableView.separatorStyle     = .singleLine
-        tableView.estimatedRowHeight = 200.0
-        tableView.rowHeight          = UITableViewAutomaticDimension
-        tableView.tableFooterView    = UIView()
+    override func setupTableView() {
+        refreshControl = tableRefreshControl
 
         tableView.register(MovieItemCell.self, forCellReuseIdentifier: Config.CellIdentifier.MovieTable.movieCell)
     }
@@ -83,6 +79,18 @@ final class DiscoverTableVC: BaseTableVC {
             cell.setup(with: movieItem)
         }
         return cell
+    }
+
+    // MARK: - Table view delegate
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let movieItem = model.movieItem(at: indexPath), let id = movieItem.id else {
+            tableView.deselectRow(at: indexPath, animated: true)
+            return
+        }
+        let controller = MovieDeatilsVC(movieId: id)
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     // MARK: - UIScrollViewDelegate

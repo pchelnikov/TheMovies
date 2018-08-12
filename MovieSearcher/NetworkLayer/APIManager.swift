@@ -66,4 +66,10 @@ final class APIManager {
             .debug()
             .map(MoviesResponse.parse)
     }
+
+    func getMovieDetails(for movieId: Int64) -> Observable<MovieDetailsResponse> {
+        return call(url: Config.API.getMovieDetails(movieId: movieId).url)
+            .debug()
+            .map(MovieDetailsResponse.parse)
+    }
 }

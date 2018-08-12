@@ -22,6 +22,7 @@ struct Config {
     enum API {
         case searchMovie(SearchMovieParams)
         case discoverPopularMovies(page: Int)
+        case getMovieDetails(movieId: Int64)
         
         var url: String {
             switch self {
@@ -29,13 +30,16 @@ struct Config {
                 return "\(URL.base)/search/movie?api_key=\(Config.apiKey)&query=\(query)&page=\(page)"
             case let .discoverPopularMovies(page: page):
                 return "\(URL.base)/discover/movie?api_key=\(Config.apiKey)&page=\(page)&sort_by=popularity.desc"
+            case let .getMovieDetails(movieId: movieId):
+                return "\(URL.base)/movie/\(movieId)?api_key=\(Config.apiKey)&language=en-US"
             }
         }
     }
     
     struct URL {
         static let base = "http://api.themoviedb.org/3"
-        static let basePoster = "http://image.tmdb.org/t/p/w300"
+        static let basePosterList = "http://image.tmdb.org/t/p/w300"
+        static let basePosterDetails = "http://image.tmdb.org/t/p/w780"
     }
     
     struct Keys {
