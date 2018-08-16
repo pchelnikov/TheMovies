@@ -18,10 +18,10 @@ class MovieItemCell: UITableViewCell {
         static let posterDefaultHeight: CGFloat = 188
     }
     
-    private let posterImageView = UIImageView(contentMode: .scaleAspectFill)
-    private let movieTitleLabel = UILabel(font: .systemFont(ofSize: 17, weight: .semibold), lines: 1)
+    private let posterImageView = UIImageView(contentMode: .scaleToFill)
+    private let movieTitleLabel = UILabel(font: .systemFont(ofSize: 17, weight: .semibold), backgroundColor: .white, lines: 1)
     private let disclosureImageView = UIImageView(image: Image.by(assetId: .disclosureIndicator))
-    private let movieOverviewLabel = UILabel(font: .systemFont(ofSize: 14, weight: .light))
+    private let movieOverviewLabel = UILabel(font: .systemFont(ofSize: 14, weight: .light), backgroundColor: .white)
     private let releaseDateView = MovieYearReleaseView()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -46,11 +46,7 @@ class MovieItemCell: UITableViewCell {
         posterImageView.mrk.leading(to: contentView, attribute: .leading, relation: .equal, constant: 0)
         posterImageView.mrk.width(Sizes.posterDefaultWidth)
         posterImageView.mrk.height(Sizes.posterDefaultHeight)
-        //posterImageView.mrk.bottom(to: contentView, attribute: .bottom, relation: .lessThanOrEqual, constant: -7)
-        posterImageView.mrk.bottom(to: contentView, attribute: .bottom, relation: .equal, constant: -7)
-        
-        posterImageView.setContentHuggingPriority(UILayoutPriority(999), for: .vertical)
-        
+
         movieTitleLabel.mrk.top(to: contentView, attribute: .top, relation: .equal, constant: 6)
         movieTitleLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 12)
         movieTitleLabel.mrk.trailing(to: disclosureImageView, attribute: .leading, relation: .equal, constant: -13)
@@ -58,19 +54,18 @@ class MovieItemCell: UITableViewCell {
         disclosureImageView.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -19)
         disclosureImageView.mrk.width(8)
         disclosureImageView.mrk.centerY(to: movieTitleLabel)
-        
-        movieOverviewLabel.mrk.top(to: movieTitleLabel, attribute: .bottom, relation: .equal, constant: 7)
+
+        movieOverviewLabel.mrk.top(to: movieTitleLabel, attribute: .bottom, relation: .equal, constant: 4)
         movieOverviewLabel.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 12)
         movieOverviewLabel.mrk.trailing(to: contentView, attribute: .trailing, relation: .equal, constant: -19)
-        //movieOverviewLabel.mrk.bottom(to: releaseDateFrameImageView, attribute: .top, relation: .lessThanOrEqual, constant: -9)
-        movieOverviewLabel.mrk.height(120)
+        movieOverviewLabel.mrk.bottom(to: releaseDateView, attribute: .top, relation: .lessThanOrEqual, constant: -6)
+
+        movieOverviewLabel.setContentCompressionResistancePriority(UILayoutPriority(250), for: .vertical)
 
         releaseDateView.mrk.leading(to: posterImageView, attribute: .trailing, relation: .equal, constant: 12)
         releaseDateView.mrk.bottom(to: contentView, attribute: .bottom, relation: .equal, constant: -6)
-        releaseDateView.mrk.width(61)
-        releaseDateView.mrk.height(21)
     }
-    
+
     /**
      Setting up Cell with Movie data.
      */
@@ -83,7 +78,7 @@ class MovieItemCell: UITableViewCell {
         }
         
         movieTitleLabel.text    = movie.title
-        movieOverviewLabel.text = movie.overview ?? ""
+        movieOverviewLabel.text = movie.overview
 
         releaseDateView.setupWith(date: movie.releaseDate)
     }

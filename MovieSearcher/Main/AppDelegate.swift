@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UINavigationBar.appearance().tintColor = .black
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(-1000, 0), for: .default)
+        UITabBar.appearance().tintColor = .black
 
         //Initital Window and root View Controller
         window = UIWindow(frame: UIScreen.main.bounds)

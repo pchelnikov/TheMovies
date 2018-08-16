@@ -33,17 +33,17 @@ final class TabBarViewController: UITabBarController {
         let searchNavController = UINavigationController(rootViewController: SearchTableVC())
 
         discoverNavController.tabBarItem = UITabBarItem(title: TabBarItem.discover.title,
-                                                        image: Image.by(assetId: .tabBarDiscoverIcon),
-                                                        tag: 0)
+                                                        image: Image.by(assetId: .tabBarDiscoverNormal),
+                                                        selectedImage: Image.by(assetId: .tabBarDiscoverSelected))
 
         favoritesNavController.tabBarItem = UITabBarItem(title: TabBarItem.favorites.title,
-                                                         image: Image.by(assetId: .tabBarFavoritesIcon),
-                                                         tag: 1)
+                                                         image: Image.by(assetId: .tabBarFavoritesNormal),
+                                                         selectedImage: Image.by(assetId: .tabBarFavoritesSelected))
 
         searchNavController.tabBarItem = UITabBarItem(title: TabBarItem.search.title,
-                                                      image: Image.by(assetId: .tabBarSearchIcon),
-                                                      tag: 2)
+                                                      image: Image.by(assetId: .tabBarSearchNormal),
+                                                      selectedImage: Image.by(assetId: .tabBarSearchSelected))
 
-        viewControllers = [discoverNavController, favoritesNavController, searchNavController]
+        viewControllers = [discoverNavController, /*favoritesNavController,*/ searchNavController]
     }
 }

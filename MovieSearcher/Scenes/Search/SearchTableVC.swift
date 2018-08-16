@@ -42,6 +42,7 @@ final class SearchTableVC: BaseTableVC {
     }
     
     override func setupTableView() {
+        super.setupTableView()
         tableView.register(MovieItemCell.self, forCellReuseIdentifier: Config.CellIdentifier.MovieTable.movieCell)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Config.CellIdentifier.MovieTable.historyCell)
     }
@@ -117,6 +118,14 @@ final class SearchTableVC: BaseTableVC {
             return model.queriesHistory.count
         } else {
             return model.movies.count
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isSearchBarActive {
+            return 44
+        } else {
+            return 200
         }
     }
     

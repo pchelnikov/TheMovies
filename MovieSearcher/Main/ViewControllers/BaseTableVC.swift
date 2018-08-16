@@ -30,8 +30,7 @@ class BaseTableVC: UITableViewController {
 
     func setupTableView() {
         tableView.separatorStyle     = .singleLine
-        tableView.estimatedRowHeight = 200.0
-        tableView.rowHeight          = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44.0
         tableView.tableFooterView    = UIView()
     }
 

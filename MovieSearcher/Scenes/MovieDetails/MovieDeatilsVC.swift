@@ -73,8 +73,6 @@ class MovieDeatilsVC: BaseVC {
 
         releaseDateView.mrk.top(to: movieOverviewLabel, attribute: .bottom, relation: .equal, constant: 12)
         releaseDateView.mrk.leading(to: containerView, attribute: .leading, relation: .equal, constant: 13)
-        releaseDateView.mrk.width(61)
-        releaseDateView.mrk.height(21)
         releaseDateView.mrk.bottom(to: containerView, attribute: .bottom, relation: .equal, constant: -12)
     }
 

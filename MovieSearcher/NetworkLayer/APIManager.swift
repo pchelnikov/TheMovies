@@ -30,7 +30,8 @@ final class APIManager {
             return Observable.error(ApplicationError.apiError(error: .commonError))
         }
         
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.cachePolicy = .reloadIgnoringLocalCacheData
         
         return URLSession.shared.rx.response(request: request)
             .flatMap({ (response, data) -> Observable<Data> in

@@ -34,8 +34,8 @@ final class DiscoverTableVC: BaseTableVC {
     }
 
     override func setupTableView() {
+        super.setupTableView()
         refreshControl = tableRefreshControl
-
         tableView.register(MovieItemCell.self, forCellReuseIdentifier: Config.CellIdentifier.MovieTable.movieCell)
     }
 
@@ -71,6 +71,10 @@ final class DiscoverTableVC: BaseTableVC {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.movies.count
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

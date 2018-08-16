@@ -17,7 +17,8 @@ struct Image {
 enum ImageAssetId: String, EnumCollection {
 
     //TabBar
-    case tabBarDiscoverIcon, tabBarFavoritesIcon, tabBarSearchIcon
+    case tabBarDiscoverNormal, tabBarFavoritesNormal, tabBarSearchNormal
+    case tabBarDiscoverSelected, tabBarFavoritesSelected, tabBarSearchSelected
 
     //Common
     case disclosureIndicator, iconReleaseFrame

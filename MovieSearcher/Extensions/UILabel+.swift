@@ -20,12 +20,17 @@ extension UILabel {
 
      - returns: An initialized label object.
      */
-    convenience init(font: UIFont, color: UIColor = .black, lines: Int = 0, alignment: NSTextAlignment = .left) {
+    convenience init(font: UIFont,
+                     color: UIColor = .black,
+                     backgroundColor: UIColor = .clear,
+                     lines: Int = 0,
+                     alignment: NSTextAlignment = .left) {
         self.init()
 
-        self.font          = font
-        self.textColor     = color
-        self.numberOfLines = lines
-        self.textAlignment = alignment
+        self.font            = font
+        self.textColor       = color
+        self.backgroundColor = backgroundColor
+        self.numberOfLines   = lines
+        self.textAlignment   = alignment
     }
 }

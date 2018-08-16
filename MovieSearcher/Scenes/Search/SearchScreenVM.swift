@@ -31,7 +31,7 @@ final class SearchScreenVM: BaseViewModel {
         loadNextData
             .skip(1)
             .subscribe(onNext: { [weak self] option in
-                guard let `self` = self else { return }
+                guard let `self` = self, self.lastQuery != "" else { return }
                 self.getMovies(for: self.lastQuery, option: option)
             }).disposed(by: disposeBag)
     }
