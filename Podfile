@@ -5,10 +5,10 @@ target 'MovieSearcher' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'RxSwift', '4.2.0'
-  pod 'RxCocoa', '4.2.0'
+  pod 'RxSwift', '4.4.0'
+  pod 'RxCocoa', '4.4.0'
   
-  pod 'Kingfisher', '4.8.0'
+  pod 'Kingfisher', '4.10.1'
 
   pod 'MarkerKit', '1.1.0'
 
