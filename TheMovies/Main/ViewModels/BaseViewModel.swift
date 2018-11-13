@@ -25,6 +25,8 @@ typealias ErrorMessage = String
  Base class for view models, which contains common declarations and implemetations.
  */
 class BaseViewModel {
+
+    let api = Dependencies.shared.api
     
     let isPageLoading = BehaviorRelay<Bool>(value: false)
     
@@ -43,7 +45,7 @@ class BaseViewModel {
             onError.onNext(ApplicationError.commonError.description)
         case ApplicationError.noResultsError:
             onError.onNext(ApplicationError.noResultsError.description)
-        case let ApplicationError.apiError(error: apiError):
+        case let ApplicationError.apiError(type: apiError):
             onError.onNext(apiError.description)
         default:
             onError.onNext(error.localizedDescription)

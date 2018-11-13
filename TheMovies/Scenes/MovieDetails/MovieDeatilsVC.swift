@@ -88,9 +88,16 @@ class MovieDeatilsVC: BaseVC {
 
                 self.title = movie.title
 
-                if let path = movie.posterPath, let url = URL(string: "\(Config.URL.basePosterDetails)\(path)") {
+                if let path = movie.posterPath, let imageBaseUrl = URL(string: Config.URL.basePoster) {
+                    let posterPath = imageBaseUrl
+                        .appendingPathComponent("w780")
+                        .appendingPathComponent(path)
+
                     self.posterImageView.kf.indicatorType = .activity
-                    self.posterImageView.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+                    self.posterImageView.kf.setImage(
+                        with: posterPath,
+                        options: [.transition(.fade(0.2))]
+                    )
                 }
 
                 self.movieTitleLabel.text = movie.title

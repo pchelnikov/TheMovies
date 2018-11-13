@@ -19,7 +19,7 @@ final class MovieDetailsVM: BaseViewModel {
 
         Observable.just(movieId)
             .do(onNext: { [weak self] option in self?.inProgress.onNext(true) })
-            .flatMapFirst { movieId in APIManager.shared.getMovieDetails(for: movieId) }
+            .flatMapFirst { movieId in self.api.getMovieDetails(.getMovieDetails(movieId: movieId)) }
             .do(onNext: { [weak self] _ in self?.inProgress.onNext(false) },
                 onError: { [weak self] error in self?.handleError(error) })
             .map { r in r }

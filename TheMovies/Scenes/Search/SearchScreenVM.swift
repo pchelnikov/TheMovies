@@ -45,11 +45,11 @@ final class SearchScreenVM: BaseViewModel {
                 switch option {
                 case .fromStart:
                     self.currentPage = 1
-                    return APIManager.shared.getMovies(for: query, page: self.currentPage).map { r in (option, r) }
+                    return self.api.searchMovies(.searchMovies((query: query, page: self.currentPage))).map { r in (option, r) }
                 case .continueLoading:
                     self.isPageLoading.accept(true)
                     self.currentPage += 1
-                    return APIManager.shared.getMovies(for: query, page: self.currentPage).map { r in (option, r) }
+                    return self.api.searchMovies(.searchMovies((query: query, page: self.currentPage))).map { r in (option, r) }
                 case .paused:
                     return Observable.empty()
                 }

@@ -13,7 +13,7 @@ import Foundation
  */
 enum MovieDetailsResponse {
     case success(movie: Movie)
-    case failed(error: ApiError)
+    case failed(error: ApiErrorType)
 
     /**
      Parses data from API response.
@@ -23,15 +23,10 @@ enum MovieDetailsResponse {
      - returns: MoviesResponse
      */
     static func parse(_ jsonData: Data) -> MovieDetailsResponse {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(.yyyyMMdd)
-
-        do {
-            let movie = try decoder.decode(Movie.self, from: jsonData)
-            return .success(movie: movie)
-        } catch {
-            debugPrint("💥 DECODE ERROR: \(error)")
+        guard let movie = Movie(data: jsonData) else {
+            debugPrint("💥 DECODING ERROR: Movie")
             return .failed(error: .parseError)
         }
+        return .success(movie: movie)
     }
 }

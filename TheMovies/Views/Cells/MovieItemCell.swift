@@ -70,9 +70,16 @@ class MovieItemCell: UITableViewCell {
      Setting up Cell with Movie data.
      */
     func setup(with movie: Movie) {
-        if let path = movie.posterPath, let url = URL(string: "\(Config.URL.basePosterList)\(path)") {
+        if let path = movie.posterPath, let imageBaseUrl = URL(string: Config.URL.basePoster) {
+            let posterPath = imageBaseUrl
+                .appendingPathComponent("w300")
+                .appendingPathComponent(path)
+
             posterImageView.kf.indicatorType = .activity
-            posterImageView.kf.setImage(with: url, options: [.transition(.fade(0.2))]) { (_, _, _, _) in
+            posterImageView.kf.setImage(
+                with: posterPath,
+                options: [.transition(.fade(0.2))]
+            ) { (_, _, _, _) in
                 self.contentView.layoutIfNeeded()
             }
         }
