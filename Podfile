@@ -1,8 +1,6 @@
-# Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
-target 'MovieSearcher' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+target 'TheMovies' do
   use_frameworks!
 
   pod 'RxSwift', '4.4.0'
@@ -12,12 +10,12 @@ target 'MovieSearcher' do
 
   pod 'MarkerKit', '1.1.0'
 
-  target 'MovieSearcherTests' do
+  target 'TheMoviesTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'MovieSearcherUITests' do
+  target 'TheMoviesUITests' do
     inherit! :search_paths
     # Pods for testing
   end
