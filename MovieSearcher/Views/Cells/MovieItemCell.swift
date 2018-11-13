@@ -24,7 +24,7 @@ class MovieItemCell: UITableViewCell {
     private let movieOverviewLabel = UILabel(font: .systemFont(ofSize: 14, weight: .light), backgroundColor: .white)
     private let releaseDateView = MovieYearReleaseView()
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViews()

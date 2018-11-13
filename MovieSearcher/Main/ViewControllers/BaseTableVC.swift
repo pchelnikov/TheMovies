@@ -13,7 +13,7 @@ import RxSwift
 
 class BaseTableVC: UITableViewController {
 
-    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let activityIndicatorView = UIActivityIndicatorView(style: .gray)
 
     let disposeBag = DisposeBag()
 

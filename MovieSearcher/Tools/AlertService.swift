@@ -33,7 +33,7 @@ public typealias AlertResult = (AlertAction) -> Void
  - parameter isPreferredFirstAction: Define preferredAction of an UIAlertController.
  - parameter handler: Callback result handler.
  */
-public func showAlertController(_ parent: UIViewController, title: String?, message: String?, style: AlertStyle, preferredStyle: UIAlertControllerStyle = .alert, isPreferredFirstAction: Bool = false, handler: AlertResult?) {
+public func showAlertController(_ parent: UIViewController, title: String?, message: String?, style: AlertStyle, preferredStyle: UIAlertController.Style = .alert, isPreferredFirstAction: Bool = false, handler: AlertResult?) {
     let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
     
     var actions = [UIAlertAction]()

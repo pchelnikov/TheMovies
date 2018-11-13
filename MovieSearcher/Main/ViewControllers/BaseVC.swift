@@ -13,7 +13,7 @@ import RxSwift
 
 class BaseVC: UIViewController {
 
-    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let activityIndicatorView = UIActivityIndicatorView(style: .gray)
 
     let disposeBag = DisposeBag()
 
@@ -23,7 +23,6 @@ class BaseVC: UIViewController {
         view.backgroundColor = .white
 
         if #available(iOS 11.0, *) {
-//            navigationItem.largeTitleDisplayMode = .always
             navigationController?.navigationBar.prefersLargeTitles = false
         }
 
