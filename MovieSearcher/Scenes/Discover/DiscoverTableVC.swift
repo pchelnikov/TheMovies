@@ -30,7 +30,7 @@ final class DiscoverTableVC: BaseTableVC {
     }
 
     override func setupViewAndConstraints() {
-        navigationItem.title = "The Movie DB"
+        navigationItem.title = "The Movies"
     }
 
     override func setupTableView() {
