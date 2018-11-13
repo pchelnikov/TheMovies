@@ -43,9 +43,11 @@ playground.xcworkspace
 # Package.pins
 .build/
 
-# CocoaPods - Refactored to standalone file
+# CocoaPods
+Pods/
+Podfile.lock
 
-# Carthage - Refactored to standalone file
+# Carthage
 
 # fastlane
 #
