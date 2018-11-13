@@ -29,9 +29,7 @@ extension Movie: Decodable {
     }
 
     init?(data: Data) {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(.yyyyMMdd)
-        guard let me = try? decoder.decode(Movie.self, from: data) else { return nil }
+        guard let me = try? JSONDecoder.theMovieDB.decode(Movie.self, from: data) else { return nil }
         self = me
     }
 }
