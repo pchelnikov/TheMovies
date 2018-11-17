@@ -21,7 +21,7 @@ Clone or download the project and run `pod install`.
 
 ## Credits
 
-- [Max Gribov](https://github.com/maxgribov) — design.
+- Design: [Max Gribov](https://github.com/maxgribov).
 
 ## What to do next
 
