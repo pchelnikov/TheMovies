@@ -1,6 +1,6 @@
 //
-//  MovieSearcherUITests.swift
-//  MovieSearcherUITests
+//  TheMoviesUITests.swift
+//  TheMoviesUITests
 //
 //  Created by Mikhail Pchelnikov on 08/06/2018.
 //  Copyright © 2018 Michael Pchelnikov. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class MovieSearcherUITests: XCTestCase {
+class TheMoviesUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

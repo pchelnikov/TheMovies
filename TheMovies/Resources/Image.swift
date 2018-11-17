@@ -1,6 +1,6 @@
 //
 //  Image.swift
-//  MovieSearcher
+//  TheMovies
 //
 //  Created by Mikhail Pchelnikov on 05/08/2018.
 //  Copyright © 2018 Michael Pchelnikov. All rights reserved.
@@ -14,7 +14,7 @@ struct Image {
     }
 }
 
-enum ImageAssetId: String, EnumCollection {
+enum ImageAssetId: String, CaseIterable {
 
     //TabBar
     case tabBarDiscoverNormal, tabBarFavoritesNormal, tabBarSearchNormal

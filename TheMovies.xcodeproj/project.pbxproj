@@ -36,7 +36,6 @@
 		C68222752120910500A76D9A /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68222742120910500A76D9A /* BaseVC.swift */; };
 		C68222772120940000A76D9A /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6822276212093FF00A76D9A /* BaseTableVC.swift */; };
 		C6D7118521165275004E8822 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D7118421165275004E8822 /* TabBarViewController.swift */; };
-		C6D71187211655F1004E8822 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D71186211655F1004E8822 /* EnumCollection.swift */; };
 		C6D711892116569E004E8822 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D711882116569E004E8822 /* UILabel+.swift */; };
 		C6D7118B21165806004E8822 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D7118A21165806004E8822 /* Image.swift */; };
 		C6DDFACB20CAB04700BEAF5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDFACA20CAB04700BEAF5B /* AppDelegate.swift */; };
@@ -106,7 +105,6 @@
 		C68222742120910500A76D9A /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		C6822276212093FF00A76D9A /* BaseTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
 		C6D7118421165275004E8822 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		C6D71186211655F1004E8822 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		C6D711882116569E004E8822 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		C6D7118A21165806004E8822 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		C6DDFAC720CAB04700BEAF5B /* TheMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,7 +257,6 @@
 			children = (
 				C61D640920CC9FCE0065715B /* Collection+.swift */,
 				C65C2A9B211F90ED00759E8A /* DateFormatter+.swift */,
-				C6D71186211655F1004E8822 /* EnumCollection.swift */,
 				C65C15E2219B7CEE00F9FB42 /* JSONDecoder+.swift */,
 				C6DDFAFC20CAB32200BEAF5B /* UIColor+.swift */,
 				C68222702120536D00A76D9A /* UIImageView+.swift */,
@@ -627,7 +624,6 @@
 				C61D640820CC9EB60065715B /* MovieItemCell.swift in Sources */,
 				C61D63FA20CC957D0065715B /* MoviesResults.swift in Sources */,
 				C65C15E1219B5F9D00F9FB42 /* TheMovieDBApi.swift in Sources */,
-				C6D71187211655F1004E8822 /* EnumCollection.swift in Sources */,
 				C6DDFACB20CAB04700BEAF5B /* AppDelegate.swift in Sources */,
 				C6DDFAFD20CAB32200BEAF5B /* UIColor+.swift in Sources */,
 				C61D63FE20CC95B60065715B /* Movie.swift in Sources */,
@@ -738,7 +734,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -792,7 +788,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -847,13 +843,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D54US7N29T;
-				INFOPLIST_FILE = MovieSearcherTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TheMoviesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pchelnikov.MovieSearcherTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pchelnikov.TheMoviesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -869,13 +865,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D54US7N29T;
-				INFOPLIST_FILE = MovieSearcherTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TheMoviesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pchelnikov.MovieSearcherTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pchelnikov.TheMoviesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -890,17 +886,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D54US7N29T;
-				INFOPLIST_FILE = MovieSearcherUITests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TheMoviesUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pchelnikov.MovieSearcherUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pchelnikov.TheMoviesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MovieSearcher;
+				TEST_TARGET_NAME = TheMovies;
 			};
 			name = Debug;
 		};
@@ -911,17 +907,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D54US7N29T;
-				INFOPLIST_FILE = MovieSearcherUITests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TheMoviesUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pchelnikov.MovieSearcherUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pchelnikov.TheMoviesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MovieSearcher;
+				TEST_TARGET_NAME = TheMovies;
 			};
 			name = Release;
 		};

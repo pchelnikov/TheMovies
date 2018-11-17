@@ -1,6 +1,6 @@
 //
 //  UILabel+.swift
-//  MovieSearcher
+//  TheMovies
 //
 //  Created by Mikhail Pchelnikov on 05/08/2018.
 //  Copyright © 2018 Michael Pchelnikov. All rights reserved.
