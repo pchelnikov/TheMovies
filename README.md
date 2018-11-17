@@ -7,8 +7,7 @@ An Example iOS Application working with [The Movie DB API](https://www.themovied
 [![Swift 4.2](https://img.shields.io/badge/swift-4.2-orange.svg)](https://github.com/pchelnikov/TheMovies)
 [![Xcode](https://img.shields.io/badge/Xcode-10%2B-green.svg)](https://github.com/pchelnikov/TheMovies)
 
-![TheMovies](https://github.com/pchelnikov/TheMovies/blob/master/Assets/TheMoviesAppScreen01.jpg)
-![TheMovies](https://github.com/pchelnikov/TheMovies/blob/master/Assets/TheMoviesAppScreen02.jpg)
+![TheMovies](https://github.com/pchelnikov/TheMovies/blob/master/Assets/TheMovies-screens.jpg)
 
 ## How to run
 
