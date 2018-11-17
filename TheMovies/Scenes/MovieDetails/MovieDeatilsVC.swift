@@ -53,10 +53,11 @@ final class MovieDeatilsVC: BaseVC {
 
         containerView.mrk.top(to: scrollView)
         containerView.mrk.bottom(to: scrollView)
+        //It doesn't work
+        //containerView.mrk.leading(to: view)
+        //containerView.mrk.trailing(to: view)
         NSLayoutConstraint(item: containerView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0).isActive = true
         NSLayoutConstraint(item: containerView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0.0).isActive = true
-//        containerView.mrk.leading(to: view)
-//        containerView.mrk.trailing(to: view)
 
         posterImageView.mrk.top(to: containerView)
         posterImageView.mrk.leading(to: containerView)

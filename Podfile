@@ -8,7 +8,7 @@ target 'TheMovies' do
   
   pod 'Kingfisher', '4.10.1'
 
-  pod 'MarkerKit', '1.1.0'
+  pod 'MarkerKit', '1.3.0'
 
   target 'TheMoviesTests' do
     inherit! :search_paths

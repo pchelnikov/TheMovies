@@ -18,6 +18,7 @@ Clone or download the project and run `pod install`.
 - [RxSwift](https://github.com/ReactiveX/RxSwift) — Reactive Programming in Swift.
 - [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa) — Reactive Programming in Swift.
 - [Kingfisher](https://github.com/onevcat/Kingfisher) — A lightweight, pure-Swift library for downloading and caching images from the web.
+- [MarkerKit](https://github.com/pchelnikov/MarkerKit) — A lightweight and easy to use wrapper for Auto Layout Constraints.
 
 ## Credits
 
