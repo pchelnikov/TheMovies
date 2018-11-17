@@ -10,7 +10,7 @@ import UIKit
 
 import MarkerKit
 
-class MovieYearReleaseView: UIView {
+final class MovieYearReleaseView: UIView {
 
     private let frameImageView = UIImageView(image: Image.by(assetId: .iconReleaseFrame))
     private let yearLabel = UILabel(font: .systemFont(ofSize: 15, weight: .light), lines: 1, alignment: .center)

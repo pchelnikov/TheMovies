@@ -11,7 +11,7 @@ import UIKit
 import Kingfisher
 import RxSwift
 
-class MovieDeatilsVC: BaseVC {
+final class MovieDeatilsVC: BaseVC {
 
     private var model: MovieDetailsVM!
 

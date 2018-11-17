@@ -11,7 +11,7 @@ import UIKit
 import Kingfisher
 import MarkerKit
 
-class MovieItemCell: UITableViewCell {
+final class MovieItemCell: UITableViewCell {
     
     private struct Sizes {
         static let posterDefaultWidth: CGFloat = 125

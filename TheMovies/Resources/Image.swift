@@ -9,6 +9,7 @@
 import UIKit
 
 struct Image {
+    
     static func by(assetId: ImageAssetId) -> UIImage? {
         return UIImage(named: assetId.rawValue)
     }

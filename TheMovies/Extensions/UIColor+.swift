@@ -8,10 +8,6 @@
 
 import UIKit
 
-/**
- Extensions for UIColor.
- */
-
 extension UIColor {
     
     open class var primaryColor: UIColor {

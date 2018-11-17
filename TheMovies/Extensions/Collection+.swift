@@ -8,12 +8,11 @@
 
 import Foundation
 
-/**
- Extensions for Collection.
- */
-
 extension Collection {
-    
+
+    /**
+     Method for safe getting element from collection.
+     */
     subscript(safe index: Index) -> Iterator.Element? {
         if indices.contains(index) {
             return self[index]

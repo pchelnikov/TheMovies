@@ -163,6 +163,7 @@ final class SearchTableVC: BaseTableVC {
 
 // MARK: - UISearchBarDelegate
 extension SearchTableVC: UISearchBarDelegate {
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         emptyDataLabel.isHidden = true
         isSearchBarActive = true
