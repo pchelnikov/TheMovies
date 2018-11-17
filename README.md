@@ -1,15 +1,18 @@
 # The Movies
 
-Bla bla
+An Example iOS Application working with [The Movie DB API](https://www.themoviedb.org/documentation/api).
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/pchelnikov/TheMovies/blob/master/LICENSE)
+[![iOS](https://img.shields.io/badge/platform-iOS-green.svg)](https://github.com/pchelnikov/TheMovies)
 [![Swift 4.2](https://img.shields.io/badge/swift-4.2-orange.svg)](https://github.com/pchelnikov/TheMovies)
+[![Xcode](https://img.shields.io/badge/Xcode-10%2B-green.svg)](https://github.com/pchelnikov/TheMovies)
 
-## Requirements
+![TheMovies](https://github.com/pchelnikov/TheMovies/blob/master/Assets/TheMoviesAppScreen01.jpg)
+![TheMovies](https://github.com/pchelnikov/TheMovies/blob/master/Assets/TheMoviesAppScreen02.jpg)
 
-- iOS 10.0+
-- Xcode 10.0+
-- Swift 4.2+
+## How to run
+
+Clone or download the project and run `pod install`.
 
 ## Third-party dependencies
 
@@ -23,6 +26,7 @@ Bla bla
 
 ## What to do next
 
+* Fix known [issues](https://github.com/pchelnikov/TheMovies/issues)
 * Writing tests
 
 ## License
