@@ -1,14 +1,14 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'TheMovies' do
   use_frameworks!
 
-  pod 'RxSwift', '4.4.0'
-  pod 'RxCocoa', '4.4.0'
+  pod 'RxSwift', '5.0.0'
+  pod 'RxCocoa', '5.0.0'
   
-  pod 'Kingfisher', '4.10.1'
+  pod 'Kingfisher', '5.5.0'
 
-  pod 'MarkerKit', '1.3.0'
+  pod 'MarkerKit', '1.4.0'
 
   target 'TheMoviesTests' do
     inherit! :search_paths

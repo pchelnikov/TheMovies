@@ -79,8 +79,8 @@ final class MovieItemCell: UITableViewCell {
             posterImageView.kf.setImage(
                 with: posterPath,
                 options: [.transition(.fade(0.2))]
-            ) { (_, _, _, _) in
-                self.contentView.layoutIfNeeded()
+            ) { [weak self] _ in
+                    self?.contentView.layoutIfNeeded()
             }
         }
         
