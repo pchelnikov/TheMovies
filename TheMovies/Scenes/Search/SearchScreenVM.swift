@@ -94,12 +94,10 @@ final class SearchScreenVM: BaseViewModel {
     func historicalQuery(at indexPath: IndexPath) -> String? {
         return queriesHistory[safe: indexPath.row]
     }
-    
-    /**
-     Updates history of queries.
-     
-     - parameter query: The query, entered by user.
-     */
+
+    /// Updates history of queries.
+    ///
+    /// - Parameter query: The query, entered by user.
     private func updateQueriesHistory(with query: String) {
         guard var history = QueriesHistoryService.getHistory(key: Config.Keys.queriesHistory) as? [String] else {
             queriesHistory = [query]

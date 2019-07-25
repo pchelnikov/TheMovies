@@ -10,11 +10,9 @@ import UIKit
 
 extension UIView {
 
-    /**
-     Adds the set of subviews to current view.
-
-     - parameter subviews: The set of subviews.
-     */
+    /// Adds the set of subviews to current view.
+    ///
+    /// - Parameter subviews: The set of subviews.
     func add(subviews: UIView...) {
         subviews.forEach(addSubview)
     }

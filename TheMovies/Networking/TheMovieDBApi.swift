@@ -18,36 +18,30 @@ final class TheMovieDBApi {
         self.manager = manager
     }
 
-    /**
-     Gets the movies list.
-
-     - parameter query: The query, entered by user.
-     - parameter page: Page of list.
-
-     - returns: Observable of MoviesResponse.
-     */
+    /// Gets the movies list.
+    ///
+    /// - Parameter endpoint: Endpoint.
+    /// - Returns: Observable of MoviesResponse.
     func searchMovies(_ endpoint: TheMovieDBEndpoint) -> Observable<MoviesResponse> {
         return manager.request(for: endpoint)
             .debug()
             .map(MoviesResponse.parse)
     }
 
-    /**
-     Gets the most popular movies.
-
-     - returns: Observable of MoviesResponse.
-     */
+    /// Gets the most popular movies.
+    ///
+    /// - Parameter endpoint: Endpoint.
+    /// - Returns: Observable of MoviesResponse.s
     func discoverPopularMovies(_ endpoint: TheMovieDBEndpoint) -> Observable<MoviesResponse> {
         return manager.request(for: endpoint)
             .debug()
             .map(MoviesResponse.parse)
     }
 
-    /**
-     Gets the movie details.
-
-     - returns: Observable of MovieDetailsResponse.
-     */
+    /// Gets the movie details.
+    ///
+    /// - Parameter endpoint: Endpoint.
+    /// - Returns: Observable of MovieDetailsResponse.
     func getMovieDetails(_ endpoint: TheMovieDBEndpoint) -> Observable<MovieDetailsResponse> {
         return manager.request(for: endpoint)
             .debug()

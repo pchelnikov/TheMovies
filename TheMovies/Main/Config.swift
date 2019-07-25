@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- Structure for constants declaration.
- */
+/// Constants and static data.
 struct Config {
 
     static let apiKey = "6c52966d9be717e486a2a0c499867009"

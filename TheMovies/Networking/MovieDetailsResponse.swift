@@ -8,20 +8,15 @@
 
 import Foundation
 
-/**
- Movie Details response handler (JSON parsing).
- */
+/// Movie Details response handler (JSON parsing).
 enum MovieDetailsResponse {
     case success(movie: Movie)
     case failed(error: ApiErrorType)
 
-    /**
-     Parses data from API response.
-
-     - parameter jsonData: JSON as Data
-
-     - returns: MoviesResponse
-     */
+    /// Parses data from API response.
+    ///
+    /// - Parameter jsonData: JSON as Data
+    /// - Returns: MovieDetailsResponse
     static func parse(_ jsonData: Data) -> MovieDetailsResponse {
         guard let movie = Movie(data: jsonData) else {
             debugPrint("💥 DECODING ERROR: Movie")

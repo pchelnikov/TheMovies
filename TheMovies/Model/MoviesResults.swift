@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- Data structure for movies search results.
- */
+/// Data structure for movies search results.
 struct MoviesResults {
     
     let movies: [Movie]

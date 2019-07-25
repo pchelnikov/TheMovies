@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- Data structure for movie object.
- */
+/// Data structure for movie object.
 struct Movie: Equatable {
 
     let id: Int64?

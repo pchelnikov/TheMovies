@@ -66,9 +66,7 @@ final class MovieItemCell: UITableViewCell {
         releaseDateView.mrk.bottom(to: contentView, attribute: .bottom, relation: .equal, constant: -6)
     }
 
-    /**
-     Setting up Cell with Movie data.
-     */
+    /// Setting up Cell with Movie data.
     func setup(with movie: Movie) {
         if let path = movie.posterPath, let imageBaseUrl = URL(string: Config.URL.basePoster) {
             let posterPath = imageBaseUrl

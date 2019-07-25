@@ -10,9 +10,9 @@ import Foundation
 
 extension Collection {
 
-    /**
-     Method for safe getting element from collection.
-     */
+    /// Gets element from collection safely.
+    ///
+    /// - Parameter index: Index of element.
     subscript(safe index: Index) -> Iterator.Element? {
         if indices.contains(index) {
             return self[index]

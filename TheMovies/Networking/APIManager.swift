@@ -23,13 +23,10 @@ final class APIManager: NetworkingManager {
         self.session = session
     }
 
-    /**
-     General method for API calling.
-
-     - parameter endpoint: Endpoint
-
-     - returns: Observable of Response Data.
-     */
+    /// General method for API calling.
+    ///
+    /// - Parameter endpoint: Endpoint
+    /// - Returns: Observable of Response Data.
     func request(for endpoint: Endpoint) -> Observable<Data> {
         guard let escString = endpoint.path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: escString) else {

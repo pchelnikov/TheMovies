@@ -22,23 +22,22 @@ public enum AlertStyle {
 
 public typealias AlertResult = (AlertAction) -> Void
 
-/**
- Convenient factory method for UIAlertController usage.
- 
- - parameter parent: The parent View Controller, where we want to show an alert.
- - parameter title: Alert title.
- - parameter message: Main alert message.
- - parameter style: Custom alert style (like cancelable, yes/no etc.)
- - parameter preferredStyle: UIAlertControllerStyle
- - parameter isPreferredFirstAction: Define preferredAction of an UIAlertController.
- - parameter handler: Callback result handler.
- */
+/// Convenient factory method for UIAlertController usage.
+///
+/// - Parameters:
+///   - parent: The parent View Controller, where we want to show an alert.
+///   - title: Alert title.
+///   - message: Main alert message.
+///   - style: Custom alert style (like cancelable, yes/no etc.)
+///   - preferredStyle: UIAlertControllerStyle
+///   - isPreferredFirstAction: Define preferredAction of an UIAlertController.
+///   - handler: Callback result handler.
 public func showAlertController(_ parent: UIViewController, title: String?, message: String?, style: AlertStyle, preferredStyle: UIAlertController.Style = .alert, isPreferredFirstAction: Bool = false, handler: AlertResult?) {
     let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
     
     var actions = [UIAlertAction]()
     
-    let cancel = UIAlertAction(title: "Отмена", style: .cancel) { _ in
+    let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
         handler?(.cancel)
     }
     

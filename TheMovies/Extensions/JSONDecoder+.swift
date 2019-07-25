@@ -10,9 +10,7 @@ import Foundation
 
 extension JSONDecoder {
 
-    /**
-     Default JSON Decoder for The Movies DB.
-     */
+    /// Default JSON Decoder for The Movies DB.
     static let theMovieDB: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(.yyyyMMdd)

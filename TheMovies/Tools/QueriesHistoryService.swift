@@ -8,10 +8,7 @@
 
 import Foundation
 
-/**
- Wrapper for storing the history of queries.
- */
-
+/// Wrapper for storing the history of queries.
 final class QueriesHistoryService {
     class func getHistory(key: String) -> [Any]? {
         return UserDefaults.standard.array(forKey: key)

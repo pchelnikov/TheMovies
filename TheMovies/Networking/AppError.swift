@@ -12,9 +12,7 @@ protocol AppError: Error {
     var description: String { get }
 }
 
-/**
- Common applicatin errors.
- */
+/// Common applicatin errors.
 enum ApplicationError: AppError {
     case commonError, noResultsError, apiError(type: ApiErrorType)
 
@@ -27,9 +25,7 @@ enum ApplicationError: AppError {
     }
 }
 
-/**
- Errors, which can occur while working with API.
- */
+/// Errors, which can occur while working with API.
 enum ApiErrorType: AppError {
     case commonError, serverError, parseError, responseError
 
